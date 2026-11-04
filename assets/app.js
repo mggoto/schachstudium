@@ -3,6 +3,49 @@ const $id = id => document.getElementById(id);
 const weekdays=['MO','DI','MI','DO','FR','SA','SO'];
 const months=['Jan.','Feb.','März','Apr.','Mai','Juni','Juli','Aug.','Sep.','Okt.','Nov.','Dez.'];
 const state={games:[],selected:null,board:null,history:[],index:0};
+/* Board corner-resize control. Width is persisted in this browser. */
+const detailGrid=document.querySelector('.detailgrid');
+const resizeGrip=$id('resizeBoard');
+let boardWidthPreference=null;
+let resizeFrame=0;
+try { const saved=Number(localStorage.getItem('schachstudium.boardWidth')); if(Number.isFinite(saved)&&saved>=240)boardWidthPreference=saved; }catch(_){}
+function boardLimits(){
+  const mobile=window.matchMedia('(max-width:780px)').matches;
+  const narrow=window.matchMedia('(max-width:1100px)').matches;
+  const available=detailGrid.clientWidth || document.documentElement.clientWidth-30;
+  const reserved=mobile?0:(narrow?302:442);
+  return {min:Math.min(260,Math.max(190,available-reserved)),max:Math.max(190,Math.min(950,available-reserved))};
+}
+function setBoardWidth(pixels,persist=false){
+  const limits=boardLimits();
+  const width=Math.round(Math.min(limits.max,Math.max(limits.min,pixels)));
+  detailGrid.style.setProperty('--board-width',width+'px');
+  if(persist){boardWidthPreference=width;try{localStorage.setItem('schachstudium.boardWidth',String(width));}catch(_){}}
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame=requestAnimationFrame(()=>state.board?.resize());
+}
+if(boardWidthPreference!==null)requestAnimationFrame(()=>setBoardWidth(boardWidthPreference));
+resizeGrip.addEventListener('pointerdown',e=>{
+  if(e.button!==0)return;
+  e.preventDefault();
+  const pointer=e.pointerId,startX=e.clientX,startWidth=document.querySelector('.boardcol').getBoundingClientRect().width;
+  resizeGrip.setPointerCapture(pointer);
+  resizeGrip.classList.add('dragging');detailGrid.classList.add('resizing');
+  const move=ev=>{if(ev.pointerId===pointer)setBoardWidth(startWidth+ev.clientX-startX,true);};
+  const end=ev=>{
+    if(ev.pointerId!==pointer)return;
+    resizeGrip.removeEventListener('pointermove',move);
+    resizeGrip.removeEventListener('pointerup',end);
+    resizeGrip.removeEventListener('pointercancel',end);
+    resizeGrip.classList.remove('dragging');detailGrid.classList.remove('resizing');
+    if(resizeGrip.hasPointerCapture(pointer))resizeGrip.releasePointerCapture(pointer);
+  };
+  resizeGrip.addEventListener('pointermove',move);
+  resizeGrip.addEventListener('pointerup',end);
+  resizeGrip.addEventListener('pointercancel',end);
+});
+resizeGrip.addEventListener('dblclick',()=>{boardWidthPreference=null;try{localStorage.removeItem('schachstudium.boardWidth');}catch(_){}detailGrid.style.removeProperty('--board-width');requestAnimationFrame(()=>state.board?.resize());});
+
 const calendarDate = () => {
   const parts = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
   const lookup = Object.fromEntries(parts.map(p=>[p.type,p.value]));
@@ -120,5 +163,5 @@ $id('homeBtn').onclick=()=>show('home');$id('detailBtn').onclick=()=>show('detai
 $id('first').onclick=()=>jump(0);$id('prev').onclick=()=>jump(state.index-1);$id('next').onclick=()=>jump(state.index+1);$id('last').onclick=()=>jump(state.history.length);
 $id('flip').onclick=()=>state.board?.flip();
 document.addEventListener('keydown',e=>{if($id('detail').hidden||e.target.closest('input,textarea,button'))return;if(e.key==='ArrowLeft'){e.preventDefault();jump(state.index-1);}if(e.key==='ArrowRight'){e.preventDefault();jump(state.index+1);}});
-window.addEventListener('resize',()=>state.board?.resize());
+window.addEventListener('resize',()=>{if(boardWidthPreference!==null)setBoardWidth(boardWidthPreference);else state.board?.resize();});
 (async()=>{try{const r=await fetch('data/games.json',{cache:'no-store'});if(!r.ok)throw Error('Katalog nicht verfügbar');state.games=await r.json();drawArchive();}catch(err){$id('weeks').textContent='Partiensammlung konnte nicht geladen werden. Bitte die Seite über einen Webserver öffnen (nicht als lokale file://-Datei). '+err.message;}})();
