@@ -1,0 +1,7 @@
+{
+  "name": "schachstudium",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "validate": "node scripts/validate_games.js" },
+  "dependencies": { "chess.js": "^1.4.0" }
+}
