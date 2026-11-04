@@ -1,0 +1,24 @@
+[Event "Simultanvorstellung"]
+[Site "Banja Luka"]
+[Date "1931.??.??"]
+[Round "?"]
+[White "Alexander Alekhine"]
+[Black "Vasic"]
+[Result "1-0"]
+[ECO "C15"]
+[Opening "Franzoesische Verteidigung, Winawer-Variante"]
+[Annotator "Schachpartie des Tages - Kommentare fuer Rapid 1200"]
+[PlyCount "21"]
+
+1. e4 {Weiss besetzt das Zentrum und öffnet die Wege für Dame und Königsläufer.} e6 {Schwarz bereitet ...d5 vor und wählt die Französische Verteidigung.}
+2. d4 {Weiss stellt einen zweiten Bauern ins Zentrum und gewinnt Raum.} d5 {Schwarz greift den Bauern e4 an und fordert das weisse Zentrum heraus.}
+3. Nc3 {Der Springer entwickelt sich und deckt den Bauern e4.} Bb4 {Der Läufer greift den Springer c3 an und fesselt ihn vorerst an den König e1.}
+4. Bd3 {Weiss entwickelt den Läufer nach d3 und stützt damit den Bauern e4.} Bxc3+ {Schwarz tauscht den Läufer gegen den Springer auf c3. Das Schach entsteht auf der Diagonale c3–d2–e1.}
+5. bxc3 {Der b-Bauer schlägt zurück. Weiss hat nun Doppelbauern auf der c-Linie, aber das Feld b2 ist für den Damenläufer frei.} h6 {Schwarz nimmt einem möglichen weissen Läufer auf g5 das Feld: Der Bauer h6 würde ihn dort angreifen.}
+6. Ba3 {Der Läufer zieht von c1 über b2 nach a3. Seine Diagonale reicht bis f8 und verhindert damit vorerst die kurze schwarze Rochade.} Nd7 {Der Springer von b8 entwickelt sich nach d7. Er unterstützt zentrale Felder, steht aber noch zwischen den schwarzen Figuren.}
+7. Qe2 {Die Dame stellt sich auf die e-Linie hinter den eigenen e-Bauern. Wenn dieser verschwindet, kann sie den Bauern e6 angreifen.} dxe4 {Schwarz schlägt den Bauern e4 mit dem d-Bauern und öffnet dadurch das Zentrum.}
+8. Bxe4 {Der Läufer d3 schlägt den schwarzen Bauern auf e4. Die Dame kann erst nach dem Wegzug dieses Läufers die e-Linie nutzen.} Ngf6 {Der Springer von g8 geht nach f6 und greift den weissen Läufer auf e4 an.}
+9. Bd3 {Weiss zieht den angegriffenen Läufer zurück nach d3. Nun sind e3, e4 und e5 frei: Die Dame auf e2 blickt bis e6.} b6 {Schwarz möchte den Läufer c8 über b7 entwickeln, übersieht aber das konkrete Mattmotiv gegen seinen König.}
+10. Qxe6+ {Weiss opfert die Dame mit Schach und schlägt den Bauern e6. Der schwarze f-Bauer wird zum Rückschlag nach e6 verleitet.} fxe6 {Schwarz nimmt die Dame mit dem Bauern f7. Damit wird f7 frei: Genau über dieses Feld kann der weisse Läufer den König e8 angreifen.}
+11. Bg6# {Der Läufer von d3 zieht nach g6 und setzt matt. Er greift e8 über f7 an, während der Läufer a3 die Fluchtfelder e7 und f8 beherrscht.}
+1-0
