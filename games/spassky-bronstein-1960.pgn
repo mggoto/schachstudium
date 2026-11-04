@@ -1,0 +1,23 @@
+[Event "27. UdSSR-Meisterschaft"]
+[Site "Leningrad, UdSSR"]
+[Date "1960.??.??"]
+[Round "?"]
+[White "Spassky, Boris"]
+[Black "Bronstein, David"]
+[Result "1-0"]
+[ECO "C36"]
+[Opening "King's Gambit Accepted, Modern Defense"]
+[Termination "Bronstein gab nach 23.Qe4+ auf"]
+
+1.e4 {Weiss besetzt e4 und öffnet die Wege für Dame und Königsläufer.} 1...e5 {Schwarz beansprucht ebenfalls das Zentrum und kontrolliert die Felder d4 und f4.} 2.f4 {Das Königsgambit: Weiss bietet den f-Bauern an, um die f-Linie und Initiative zu gewinnen.} 2...exf4 {Bronstein nimmt das Gambit an: Der e5-Bauer schlägt auf f4.}
+3.Nf3 {Der Springer entwickelt sich und verhindert vorerst das störende ...Dh4+.} 3...d5 {Schwarz greift sofort das Zentrum an, statt nur den Mehrbauern zu verteidigen.} 4.exd5 {Der weisse e-Bauer schlägt den schwarzen d-Bauern und öffnet die Stellung.} 4...Bd6 {Der Läufer geht nach d6 und zielt auf den weissen Königsflügel.}
+5.Nc3 {Weiss entwickelt den Damenspringer und erhöht die Kontrolle über d5 und e4.} 5...Ne7 {Der schwarze Königsspringer entwickelt sich nach e7 und kann den Bauern d5 angreifen.} 6.d4 {Weiss baut ein breites Zentrum auf und öffnet den Weg für den Läufer c1.} 6...O-O {Schwarz bringt den König früh in Sicherheit; der Turm steht nun auf f8.}
+7.Bd3 {Der Läufer entwickelt sich aktiv und schaut entlang der Diagonale nach h7.} 7...Nd7 {Der zweite schwarze Springer kommt heraus und stützt wichtige Zentralfelder.} 8.O-O {Auch Weiss rochiert: Der König steht auf g1, der Turm auf f1.} 8...h6 {Schwarz nimmt dem weissen Springer und Läufer das Feld g5; der h-Bauer verlässt h7.}
+9.Ne4 {Der Springer von c3 springt nach e4, zentralisiert sich und erhöht den Druck auf d6 und f6.} 9...Nxd5 {Der Springer von e7 nimmt den weissen Bauern auf d5 zurück.} 10.c4 {Weiss greift den Springer d5 mit einem Bauern an und gewinnt Raum.} 10...Ne3 {Der angegriffene Springer zieht nach e3 und bietet sich dort zum Tausch an.}
+11.Bxe3 {Der Läufer von c1 nimmt den Springer auf e3; Weiss beseitigt den Eindringling.} 11...fxe3 {Der schwarze Bauer von f4 schlägt den Läufer auf e3 und wird zum gefährlichen Freibauern.} 12.c5 {Weiss treibt den Läufer d6 an und gewinnt Raum am Damenflügel.} 12...Be7 {Der Läufer weicht von d6 nach e7 aus und bleibt zur Verteidigung verfügbar.}
+13.Bc2 {Der weisse Läufer zieht von d3 nach c2 zurück und hält die Diagonale Richtung h7 im Auge.} 13...Re8 {Der Turm von f8 zieht nach e8; der eigene Läufer e7 blockiert vorerst die e-Linie.} 14.Qd3 {Die Dame kommt nach d3 und richtet ihren Blick auf h7, sobald e4 frei ist.} 14...e2 {Der schwarze Freibauer erreicht e2 und droht mit ...exf1=Q+ den weissen Turm zu schlagen und umzuwandeln.}
+15.Nd6 {Der Springer von e4 geht nach d6: Er räumt e4 für die Damendiagonale d3–h7 und droht Nxf7.} 15...Nf8 {Der Springer von d7 geht nach f8 und deckt insbesondere das Feld h7.} 16.Nxf7 {Der Springer von d6 schlägt f7 und greift nun unter anderem die schwarze Dame auf d8 an.} 16...exf1=Q+ {Der Freibauer schlägt den weissen Turm auf f1 und wandelt sich mit Schach in eine Dame um.}
+17.Rxf1 {Der verbliebene weisse Turm kommt von a1 über die erste Reihe und schlägt die neue Dame auf f1.} 17...Bf5 {Der Läufer von c8 greift auf f5 die weisse Dame d3 an, steht aber selbst auf ihrer Diagonale.} 18.Qxf5 {Die weisse Dame schlägt den ungeschützten Läufer auf f5.} 18...Qd7 {Die schwarze Dame entkommt dem Angriff des Springers f7 und zieht von d8 nach d7.}
+19.Qf4 {Die weisse Dame zieht nach f4 und bleibt nahe am schwarzen König aktiv.} 19...Bf6 {Der verbliebene schwarze Läufer kommt nach f6 und greift über e5 den Bauern d4 an.} 20.N3e5 {Der Springer von f3 zieht nach e5, greift die Dame d7 an und besetzt ein starkes Zentralfeld.} 20...Qe7 {Die schwarze Dame weicht nach e7 aus.}
+21.Bb3 {Der Läufer von c2 zieht nach b3. Seine Diagonale zum König g8 ist noch durch den eigenen Springer f7 blockiert.} 21...Bxe5 {Der Läufer von f6 schlägt den weissen Springer auf e5.} 22.Nxe5+ {Der Springer von f7 schlägt den Läufer auf e5; dadurch wird die Läuferdiagonale b3–g8 frei: Schach!} 22...Kh7 {Der schwarze König muss von g8 nach h7 ausweichen.}
+23.Qe4+ {Die Dame geht nach e4 und gibt über f5–g6 Schach auf h7. Schwarz gibt in verlorener Stellung auf.} 1-0
