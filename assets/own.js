@@ -96,7 +96,7 @@
     setStatus('ownAiStatus','Die KI analysiert die Partie. Der Server prüft jeden Zug.');
     try{
       const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},
-        body:JSON.stringify({pgn:own.chess.pgn(),focus:'Schachverständnis Rapid Elo 1200',color:'both'})});
+        body:JSON.stringify({pgn:own.chess.pgn(),focus:'Schachverständnis Rapid Elo 1200',color:el('ownColor').value})});
       if(!response.ok){let detail='HTTP '+response.status;try{const e=await response.json();detail=e.error||detail;}catch(_){}throw Error('KI-Dienst: '+detail);}
       const data=await response.json();
       if(!Array.isArray(data.comments)||data.comments.length!==own.moves.length||data.comments.some(x=>typeof x!=='string'||!x.trim()))throw Error('Die KI hat nicht für jeden Halbzug eine Erklärung geliefert.');
