@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f3ee"><title>Schachstudium – Eine Partie pro Tag</title>
 <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-<link rel="stylesheet" href="assets/style.css?v=kidsgambit-2">
+<link rel="stylesheet" href="assets/style.css?v=stockfish-eval-1">
 <style>
 /* Kidsgambit-Farben direkt im HTML, damit eine alte CSS-Datei sie nicht verdeckt. */
 #board.realboard .square-55d63.white-1e1d7 { background: #F5F0E8 !important; }
@@ -15,7 +15,7 @@
 <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script defer src="assets/app.js?v=kidsgambit-2"></script>
+<script defer src="assets/app.js?v=stockfish-eval-1"></script>
 </head>
 <body>
 <div class="shell">
@@ -30,7 +30,7 @@
   <button class="backlink" id="backBtn">← Zur Wochenübersicht</button>
   <div class="detailhead"><div><div class="eyebrow" id="detailDate"></div><h1 id="detailTitle"></h1><p id="detailMeta"></p></div><div class="detailActions"><a class="download" id="pgnLink" href="#" download>PGN herunterladen ↓</a></div></div>
   <div class="detailgrid">
-    <div class="boardcol"><div class="boardwithbar"><div class="evalbar-wrap" aria-label="Materialbilanz" role="group"><div class="evalbar" id="evalBar" role="img" aria-label="Material ausgeglichen"><div id="evalWhite" class="evalwhite"></div><div id="evalBlack" class="evalblack"></div><span class="evalbar-top">Schwarz</span><span class="evalbar-bottom">Weiss</span></div><div class="evalbar-score" id="evalScore" aria-live="polite">0</div></div><div class="board-surface"><div id="board" class="realboard"></div><div id="resizeBoard" class="board-resize-handle" role="button" tabindex="0" title="Brettgrösse ändern"></div></div></div><p class="evalnote">Materialbilanz (Bauernwerte), keine Engine-Bewertung</p><div id="error" role="alert" class="error" hidden></div><div class="controls"><button id="first" title="Anfang">⏮</button><button id="prev" title="Vorheriger Halbzug">←</button><span id="moveProgress" class="moveProgress"></span><button id="next" title="Nächster Halbzug">→</button><button id="last" title="Ende">⏭</button><button id="flip" title="Brett drehen">↻</button></div></div>
+    <div class="boardcol"><div class="boardwithbar"><div class="evalbar-wrap" aria-label="Stockfish-Stellungsbewertung" role="group"><div class="evalbar" id="evalBar" role="img" aria-label="Stockfish-Bewertung lädt"><div id="evalWhite" class="evalwhite"></div><div id="evalBlack" class="evalblack"></div><span class="evalbar-top">Schwarz</span><span class="evalbar-bottom">Weiss</span></div><div class="evalbar-score" id="evalScore" aria-live="polite">0</div></div><div class="board-surface"><div id="board" class="realboard"></div><div id="resizeBoard" class="board-resize-handle" role="button" tabindex="0" title="Brettgrösse ändern"></div></div></div><p class="evalnote" id="evalNote">Stockfish-Bewertung wird geladen</p><div id="error" role="alert" class="error" hidden></div><div class="controls"><button id="first" title="Anfang">⏮</button><button id="prev" title="Vorheriger Halbzug">←</button><span id="moveProgress" class="moveProgress"></span><button id="next" title="Nächster Halbzug">→</button><button id="last" title="Ende">⏭</button><button id="flip" title="Brett drehen">↻</button></div></div>
     <aside class="sidebar"><section class="comment cardpanel" aria-live="polite"><div class="eyebrow">AKTUELLER ZUG</div><h2 id="commentTitle">Startstellung</h2><p id="commentText">Wähle einen Zug.</p></section><section class="openingbox cardpanel"><div class="eyebrow">GESPIELTE ERÖFFNUNG</div><h3 id="openingName"></h3><p id="openingCode"></p><p id="openingFocus"></p></section><section class="movesbox cardpanel"><div class="moveshead"><h3>Gesamte Zugfolge</h3><span id="moveCount"></span></div><div id="moves" class="movesgrid"></div></section></aside>
   </div>
 </section>
