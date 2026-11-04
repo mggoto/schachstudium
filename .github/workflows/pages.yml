@@ -28,6 +28,16 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Partien validieren
         run: npm run validate
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Stockfish installieren
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y stockfish
+          python -m pip install --disable-pip-version-check chess
+      - name: Stellungsbewertungen vorberechnen
+        run: python scripts/generate_evaluations.py
       - name: Pages vorbereiten
         uses: actions/configure-pages@v5
       - name: Webseite packen
