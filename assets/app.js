@@ -1,0 +1,124 @@
+'use strict';
+const $id = id => document.getElementById(id);
+const weekdays=['MO','DI','MI','DO','FR','SA','SO'];
+const months=['Jan.','Feb.','März','Apr.','Mai','Juni','Juli','Aug.','Sep.','Okt.','Nov.','Dez.'];
+const state={games:[],selected:null,board:null,history:[],index:0};
+const calendarDate = () => {
+  const parts = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const lookup = Object.fromEntries(parts.map(p=>[p.type,p.value]));
+  return `${lookup.year}-${lookup.month}-${lookup.day}`;
+};
+const iso = date => date.toISOString().slice(0,10);
+const utc = s => new Date(s+'T12:00:00Z');
+const addDays=(day,num)=>{const d=utc(day);d.setUTCDate(d.getUTCDate()+num);return iso(d);};
+const weekStart = day => {const d=utc(day); const weekday=(d.getUTCDay()+6)%7;return addDays(day,-weekday);};
+const niceDate=day=>{const d=utc(day);return `${d.getUTCDate()}. ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function show(page){
+  const detail=page==='detail';$id('home').hidden=detail;$id('detail').hidden=!detail;
+  $id('homeBtn').classList.toggle('active',!detail);$id('detailBtn').classList.toggle('active',detail);
+  if(detail)requestAnimationFrame(()=>state.board?.resize());
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function drawArchive(){
+  const now=calendarDate();const available=state.games.filter(g=>g.date<=now).sort((a,b)=>b.date.localeCompare(a.date));
+  $id('total').textContent=String(available.length);$id('todayLabel').textContent=niceDate(now);
+  const byDate=new Map(available.map(g=>[g.date,g]));
+  const start=weekStart(available.at(-1)?.date || now),end=weekStart(now);
+  let weeks='';
+  for(let mon=end;mon>=start;mon=addDays(mon,-7)){
+    const sunday=addDays(mon,6);
+    const cards=Array.from({length:7},(_,i)=>{
+      const day=addDays(mon,i),g=byDate.get(day),stamp=utc(day),label=`${weekdays[i]} · ${String(stamp.getUTCDate()).padStart(2,'0')}`;
+      if(!g)return `<div class="gamecard empty"><div class="top"><span class="date">${label}</span></div><div class="emptytext">${day>now?'Noch nicht erschienen':'Keine Partie hinterlegt'}</div></div>`;
+      const whiteWinner=g.result==='1-0',blackWinner=g.result==='0-1';
+      return `<button class="gamecard" data-game="${esc(g.id)}" aria-label="${esc(g.white)} gegen ${esc(g.black)} öffnen"><div class="top"><span class="date">${label}</span><span class="pill">~${esc(g.level)}</span></div><div class="players"><div class="player"><i class="piece"></i><span class="name">${esc(g.white)}</span>${whiteWinner?'<span class="winner">✓</span>':''}</div><div class="player"><i class="piece black"></i><span class="name">${esc(g.black)}</span>${blackWinner?'<span class="winner">✓</span>':''}</div></div><div class="cardfoot"><div class="opening">${esc(g.opening)}</div><div class="meta">${esc(g.year)} · ${esc(g.result)}</div></div></button>`;
+    }).join('');
+    weeks+=`<section><div class="week-head"><strong>${niceDate(mon)} – ${niceDate(sunday)}</strong><small>Mo–So</small></div><div class="weeks-wrap"><div class="week-days">${weekdays.map(d=>`<div class="weekday">${d}</div>`).join('')}</div><div class="week-days">${cards}</div></div></section>`;
+  }
+  $id('weeks').innerHTML=weeks;
+  document.querySelectorAll('[data-game]').forEach(el=>el.addEventListener('click',()=>openGame(el.dataset.game)));
+}
+function parseAnnotatedPgn(pgn){
+  const body=pgn.replace(/^\s*\[[^\n]*\]\s*$/gm,' ');
+  const tokens=body.match(/\{[^}]*\}|[^\s{}]+/g)||[];
+  const game=new Chess();const moves=[],fens=[game.fen()];
+  for(let tok of tokens){
+    if(tok.startsWith('{')){if(!moves.length||moves.at(-1).comment)throw Error('Kommentarzuordnung in PGN fehlerhaft');moves.at(-1).comment=tok.slice(1,-1).trim();continue;}
+    tok=tok.replace(/^\d+\.(?:\.\.)?/,'');
+    if(!tok||/^\.{2,3}$/.test(tok)||/^(1-0|0-1|1\/2-1\/2|\*)$/.test(tok)||tok.startsWith('$'))continue;
+    const move=game.move(tok,{sloppy:true});
+    if(!move)throw Error(`Illegaler PGN-Zug: ${tok}`);
+    moves.push({san:move.san,comment:'',fen:game.fen()});fens.push(game.fen());
+  }
+  if(!moves.length||moves.some(m=>!m.comment))throw Error('Mindestens ein Halbzug hat keinen Kommentar.');
+  return {moves,fens};
+}
+async function openGame(id){
+  const game=state.games.find(g=>g.id===id);if(!game)return;
+  state.selected=game;
+  $id('detailBtn').disabled=false;
+  $id('detailTitle').textContent=`${game.white} – ${game.black} · ${game.year}`;
+  $id('detailDate').textContent=niceDate(game.date)+' · '+game.result;
+  $id('detailMeta').textContent=`${game.opening} (${game.eco}) · Lernniveau ca. ${game.level}`;
+  $id('openingName').textContent=game.opening;$id('openingCode').textContent=`ECO ${game.eco} · ${game.year}`;
+  $id('openingFocus').textContent='Lernschwerpunkt: '+game.focus;
+  $id('pgnLink').href=game.pgn;
+  $id('pgnLink').download=game.pgn.split('/').pop();
+  show('detail');
+  $id('commentTitle').textContent='Partie wird geladen';$id('commentText').textContent=game.context;
+  try{
+    if(typeof Chess==='undefined'||typeof Chessboard==='undefined')throw Error('Die Schachbibliotheken konnten nicht geladen werden. Internetverbindung prüfen.');
+    const res=await fetch(game.pgn);
+    if(!res.ok)throw Error('PGN konnte nicht geladen werden (HTTP '+res.status+').');
+    const parsed=parseAnnotatedPgn(await res.text());
+    state.history=parsed.moves;state.fens=parsed.fens;state.index=0;
+    if(state.board){state.board.destroy();state.board=null;}
+    state.board=Chessboard('board',{position:'start',orientation:'white',showNotation:true,draggable:false,pieceTheme:'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'});
+    $id('error').hidden=true;
+    $id('moves').innerHTML=Array.from({length:Math.ceil(parsed.moves.length/2)},(_,i)=>{
+      const w=parsed.moves[i*2],b=parsed.moves[i*2+1];
+      return `<span class="n">${i+1}.</span><button data-ply="${i*2+1}">${esc(w.san)}</button>${b?`<button data-ply="${i*2+2}">${esc(b.san)}</button>`:'<span></span>'}`;
+    }).join('');
+    document.querySelectorAll('[data-ply]').forEach(el=>el.addEventListener('click',()=>jump(Number(el.dataset.ply))));
+    $id('moveCount').textContent=parsed.moves.length+' Halbzüge';
+    renderMove();setTimeout(()=>state.board?.resize(),80);
+  }catch(error){$id('error').textContent=error.message;$id('error').hidden=false;$id('commentTitle').textContent='Partie nicht verfügbar';$id('commentText').textContent='Die angeforderte PGN-Datei konnte nicht verarbeitet werden.';}
+}
+// Material only: this is not a chess-engine positional evaluation.
+function materialBalance(fen){
+ const value={p:1,n:3,b:3,r:5,q:9,k:0};let score=0;
+ for(const ch of fen.split(' ')[0]){if(!value.hasOwnProperty(ch.toLowerCase()))continue;score+=(ch===ch.toUpperCase()?1:-1)*value[ch.toLowerCase()];}
+ return score;
+}
+function updateMaterialBar(fen){
+ const score=materialBalance(fen);
+ // Clamp excessive differences to keep the bar legible.
+ const whitePercent=50+45*Math.tanh(score/6);
+ $id('evalWhite').style.height=whitePercent.toFixed(2)+'%';
+ $id('evalBlack').style.height=(100-whitePercent).toFixed(2)+'%';
+ $id('evalScore').textContent=score===0?'0':(score>0?'+':'')+score;
+ const label=score===0?'Material ausgeglichen':(score>0?'Weiss':'Schwarz')+' hat '+Math.abs(score)+' Bauerneinheiten mehr Material';
+ $id('evalBar').setAttribute('aria-label',label);
+ $id('evalScore').title=label;
+}
+function jump(n){if(!state.history.length)return;state.index=Math.max(0,Math.min(state.history.length,n));renderMove();}
+function renderMove(){
+ const i=state.index,one=state.history[i-1];
+ state.board?.position(state.fens[i],false);
+ updateMaterialBar(state.fens[i]);
+ $id('commentTitle').textContent=i?`${Math.ceil(i/2)}${i%2?'.':'…'} ${one.san}`:'Startstellung';
+ $id('commentText').textContent=i?one.comment:state.selected.context;
+ $id('moveProgress').textContent=`${i} / ${state.history.length}`;
+ for(const id of ['prev','first'])$id(id).disabled=i===0;
+ for(const id of ['next','last'])$id(id).disabled=i===state.history.length;
+ document.querySelectorAll('[data-ply]').forEach(el=>el.classList.toggle('active',Number(el.dataset.ply)===i));
+ const active=document.querySelector('[data-ply].active');
+ if(active){const panel=$id('moves');const top=active.offsetTop-panel.offsetTop;if(top<panel.scrollTop||top>panel.scrollTop+panel.clientHeight-40) panel.scrollTop=Math.max(0,top-100);}
+}
+$id('homeBtn').onclick=()=>show('home');$id('detailBtn').onclick=()=>show('detail');$id('backBtn').onclick=()=>show('home');$id('logo').onclick=e=>{e.preventDefault();show('home');};
+$id('first').onclick=()=>jump(0);$id('prev').onclick=()=>jump(state.index-1);$id('next').onclick=()=>jump(state.index+1);$id('last').onclick=()=>jump(state.history.length);
+$id('flip').onclick=()=>state.board?.flip();
+document.addEventListener('keydown',e=>{if($id('detail').hidden||e.target.closest('input,textarea,button'))return;if(e.key==='ArrowLeft'){e.preventDefault();jump(state.index-1);}if(e.key==='ArrowRight'){e.preventDefault();jump(state.index+1);}});
+window.addEventListener('resize',()=>state.board?.resize());
+(async()=>{try{const r=await fetch('data/games.json',{cache:'no-store'});if(!r.ok)throw Error('Katalog nicht verfügbar');state.games=await r.json();drawArchive();}catch(err){$id('weeks').textContent='Partiensammlung konnte nicht geladen werden. Bitte die Seite über einen Webserver öffnen (nicht als lokale file://-Datei). '+err.message;}})();
