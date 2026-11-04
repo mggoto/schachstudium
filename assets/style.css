@@ -63,7 +63,7 @@
 .own-setup{margin:18px 0;display:grid;gap:8px}
 .own-setup p{color:#6d756e;font-size:12px;margin:4px 0}
 .own-settings{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) auto;gap:8px}
-.own-settings input{min-width:0;width:100%;border:1px solid #d8d5d1;border-radius:8px;padding:10px 12px;background:#faf9f7;font:inherit;font-size:12px}
+.own-settings input,.own-settings select{min-width:0;width:100%;border:1px solid #d8d5d1;border-radius:8px;padding:10px 12px;background:#faf9f7;font:inherit;font-size:12px}
 .own-results{display:grid;grid-template-columns:minmax(0,min(60vh,650px)) minmax(290px,420px);gap:22px;align-items:start;justify-content:center}
 .own-board{min-width:0}
 .own-board-main{width:100%}
@@ -81,3 +81,8 @@
 #ownMoves{max-height:370px;overflow:auto}
 @media(max-width:1080px){.own-results{grid-template-columns:minmax(0,min(55vh,600px)) minmax(260px,380px);gap:12px}.own-settings{grid-template-columns:1fr 1fr}.own-settings button{grid-column:1/-1}}
 @media(max-width:780px){.own-results,.own-summary #ownSummaryContent{grid-template-columns:1fr}.own-summary #ownSummaryContent>p{grid-column:1}.own-settings{grid-template-columns:1fr}.own-settings button{grid-column:1}.own-import{padding:14px}}
+
+.own-settings select{font-weight:700;cursor:pointer;color:#503568;background:#faf8fc}
+.own-settings{grid-template-columns:minmax(150px,.7fr) minmax(0,1.6fr) minmax(0,1fr) auto}
+@media(max-width:1080px){.own-settings{grid-template-columns:1fr 1fr}.own-settings button{grid-column:1/-1}}
+@media(max-width:780px){.own-settings{grid-template-columns:1fr}.own-settings button{grid-column:1}}
