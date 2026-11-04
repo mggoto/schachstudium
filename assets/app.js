@@ -2,7 +2,7 @@
 const $id = id => document.getElementById(id);
 const weekdays=['MO','DI','MI','DO','FR','SA','SO'];
 const months=['Jan.','Feb.','März','Apr.','Mai','Juni','Juli','Aug.','Sep.','Okt.','Nov.','Dez.'];
-const state={games:[],selected:null,board:null,history:[],index:0};
+const state={games:[],selected:null,board:null,history:[],index:0,evaluations:null};
 /* Board corner-resize control. Width is persisted in this browser. */
 const detailGrid=document.querySelector('.detailgrid');
 const resizeGrip=$id('resizeBoard');
@@ -115,6 +115,12 @@ async function openGame(id){
     const res=await fetch(game.pgn);
     if(!res.ok)throw Error('PGN konnte nicht geladen werden (HTTP '+res.status+').');
     const parsed=parseAnnotatedPgn(await res.text());
+    if(state.evaluations===null){
+      try{
+        const evaluationResponse=await fetch('data/evaluations.json',{cache:'no-store'});
+        state.evaluations=evaluationResponse.ok?await evaluationResponse.json():{};
+      }catch(_){state.evaluations={};}
+    }
     state.history=parsed.moves;state.fens=parsed.fens;state.index=0;
     if(state.board){state.board.destroy();state.board=null;}
     state.board=Chessboard('board',{position:'start',orientation:'white',showNotation:true,draggable:false,pieceTheme:'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'});
@@ -128,22 +134,32 @@ async function openGame(id){
     renderMove();setTimeout(()=>state.board?.resize(),80);
   }catch(error){$id('error').textContent=error.message;$id('error').hidden=false;$id('commentTitle').textContent='Partie nicht verfügbar';$id('commentText').textContent='Die angeforderte PGN-Datei konnte nicht verarbeitet werden.';}
 }
-// Material only: this is not a chess-engine positional evaluation.
-function materialBalance(fen){
- const value={p:1,n:3,b:3,r:5,q:9,k:0};let score=0;
- for(const ch of fen.split(' ')[0]){if(!value.hasOwnProperty(ch.toLowerCase()))continue;score+=(ch===ch.toUpperCase()?1:-1)*value[ch.toLowerCase()];}
- return score;
-}
-function updateMaterialBar(fen){
- const score=materialBalance(fen);
- // Clamp excessive differences to keep the bar legible.
- const whitePercent=50+45*Math.tanh(score/6);
+// Precomputed Stockfish assessments: white advantage positive, black advantage negative.
+function updatePositionBar(){
+ const entry=state.evaluations?.[state.selected?.id];
+ const scores=entry?.scores;
+ const score=entry?.halfMoves===state.history.length && Array.isArray(scores) && scores.length===state.history.length+1 ? scores[state.index] : null;
+ const note=$id('evalNote');
+ const text=$id('evalScore');
+ if(!score || (typeof score.cp!=='number' && typeof score.mate!=='number')){
+   $id('evalWhite').style.height='50%';$id('evalBlack').style.height='50%';
+   text.textContent='—';
+   const label='Keine Engine-Bewertung verfügbar';
+   $id('evalBar').setAttribute('aria-label',label);text.title=label;
+   note.textContent='Stockfish-Bewertung nicht verfügbar';return;
+ }
+ const isMate=typeof score.mate==='number';
+ const cp=isMate?(score.mate>=0?10000:-10000):score.cp;
+ // Nonlinear display so small advantages remain visible and decisive advantages saturate.
+ const whitePercent=isMate?(cp>0?96:4):50+46*Math.tanh(cp/350);
  $id('evalWhite').style.height=whitePercent.toFixed(2)+'%';
  $id('evalBlack').style.height=(100-whitePercent).toFixed(2)+'%';
- $id('evalScore').textContent=score===0?'0':(score>0?'+':'')+score;
- const label=score===0?'Material ausgeglichen':(score>0?'Weiss':'Schwarz')+' hat '+Math.abs(score)+' Bauerneinheiten mehr Material';
- $id('evalBar').setAttribute('aria-label',label);
- $id('evalScore').title=label;
+ const display=isMate?('M'+(score.mate>0?'+':'')+score.mate):(cp>=0?'+':'')+(cp/100).toFixed(1);
+ text.textContent=display;
+ const who=isMate?(score.mate>0?'Weiss':'Schwarz'):(cp>0?'Weiss':cp<0?'Schwarz':'Keine Seite');
+ const label=isMate?who+' kann in '+Math.abs(score.mate)+' Zügen mattsetzen':'Stockfish: '+who+(cp===0?' hat keinen messbaren Vorteil':' ist im Vorteil')+', Bewertung '+display+' aus weisser Sicht';
+ $id('evalBar').setAttribute('aria-label',label);text.title=label;
+ note.textContent='Stockfish-Stellungsbewertung (aus Sicht von Weiss)';
 }
 function jump(n){if(!state.history.length)return;state.index=Math.max(0,Math.min(state.history.length,n));renderMove();}
 function renderMove(){
@@ -151,7 +167,7 @@ function renderMove(){
  state.board?.position(state.fens[i],false);
  document.querySelectorAll('#board .kidsgambit-lastmove').forEach(el=>el.classList.remove('kidsgambit-lastmove'));
  if(one){for(const sq of [one.from,one.to]){const el=document.querySelector('#board .square-'+sq);el?.classList.add('kidsgambit-lastmove');}}
- updateMaterialBar(state.fens[i]);
+ updatePositionBar();
  $id('commentTitle').textContent=i?`${Math.ceil(i/2)}${i%2?'.':'…'} ${one.san}`:'Startstellung';
  $id('commentText').textContent=i?one.comment:state.selected.context;
  $id('moveProgress').textContent=`${i} / ${state.history.length}`;
