@@ -92,7 +92,7 @@ function parseAnnotatedPgn(pgn){
     if(!tok||/^\.{2,3}$/.test(tok)||/^(1-0|0-1|1\/2-1\/2|\*)$/.test(tok)||tok.startsWith('$'))continue;
     const move=game.move(tok,{sloppy:true});
     if(!move)throw Error(`Illegaler PGN-Zug: ${tok}`);
-    moves.push({san:move.san,comment:'',fen:game.fen()});fens.push(game.fen());
+    moves.push({san:move.san,from:move.from,to:move.to,comment:'',fen:game.fen()});fens.push(game.fen());
   }
   if(!moves.length||moves.some(m=>!m.comment))throw Error('Mindestens ein Halbzug hat keinen Kommentar.');
   return {moves,fens};
@@ -149,6 +149,8 @@ function jump(n){if(!state.history.length)return;state.index=Math.max(0,Math.min
 function renderMove(){
  const i=state.index,one=state.history[i-1];
  state.board?.position(state.fens[i],false);
+ document.querySelectorAll('#board .kidsgambit-lastmove').forEach(el=>el.classList.remove('kidsgambit-lastmove'));
+ if(one){for(const sq of [one.from,one.to]){const el=document.querySelector('#board .square-'+sq);el?.classList.add('kidsgambit-lastmove');}}
  updateMaterialBar(state.fens[i]);
  $id('commentTitle').textContent=i?`${Math.ceil(i/2)}${i%2?'.':'…'} ${one.san}`:'Startstellung';
  $id('commentText').textContent=i?one.comment:state.selected.context;
