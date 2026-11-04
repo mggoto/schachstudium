@@ -58,9 +58,13 @@ const weekStart = day => {const d=utc(day); const weekday=(d.getUTCDay()+6)%7;re
 const niceDate=day=>{const d=utc(day);return `${d.getUTCDate()}. ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function show(page){
-  const detail=page==='detail';$id('home').hidden=detail;$id('detail').hidden=!detail;
-  $id('homeBtn').classList.toggle('active',!detail);$id('detailBtn').classList.toggle('active',detail);
+  const detail=page==='detail', own=page==='own';
+  $id('home').hidden=detail||own;$id('detail').hidden=!detail;$id('own').hidden=!own;
+  $id('homeBtn').classList.toggle('active',!detail&&!own);
+  $id('detailBtn').classList.toggle('active',detail);
+  $id('ownBtn').classList.toggle('active',own);
   if(detail)requestAnimationFrame(()=>state.board?.resize());
+  if(own)requestAnimationFrame(()=>window.ownChessResize?.());
   window.scrollTo({top:0,behavior:'instant'});
 }
 function drawArchive(){
@@ -177,7 +181,7 @@ function renderMove(){
  const active=document.querySelector('[data-ply].active');
  if(active){const panel=$id('moves');const top=active.offsetTop-panel.offsetTop;if(top<panel.scrollTop||top>panel.scrollTop+panel.clientHeight-40) panel.scrollTop=Math.max(0,top-100);}
 }
-$id('homeBtn').onclick=()=>show('home');$id('detailBtn').onclick=()=>show('detail');$id('backBtn').onclick=()=>show('home');$id('logo').onclick=e=>{e.preventDefault();show('home');};
+$id('homeBtn').onclick=()=>show('home');$id('ownBtn').onclick=()=>show('own');$id('detailBtn').onclick=()=>show('detail');$id('backBtn').onclick=()=>show('home');$id('logo').onclick=e=>{e.preventDefault();show('home');};
 $id('first').onclick=()=>jump(0);$id('prev').onclick=()=>jump(state.index-1);$id('next').onclick=()=>jump(state.index+1);$id('last').onclick=()=>jump(state.history.length);
 $id('flip').onclick=()=>state.board?.flip();
 document.addEventListener('keydown',e=>{if($id('detail').hidden||e.target.closest('input,textarea,button'))return;if(e.key==='ArrowLeft'){e.preventDefault();jump(state.index-1);}if(e.key==='ArrowRight'){e.preventDefault();jump(state.index+1);}});
