@@ -21,3 +21,32 @@
 .board-resize-handle:active,.board-resize-handle.dragging{background:#d4e6d0}
 .detailgrid.resizing,.detailgrid.resizing *{user-select:none!important}
 @media(max-width:780px){.boardcol{width:min(100%,var(--board-width,570px));margin-inline:auto}.board-resize-handle{right:0}}
+
+/* Resize corner integrated into the board's bottom-right square. */
+.board-surface{position:relative;min-width:0;width:100%;aspect-ratio:1}
+.board-surface .realboard{width:100%;height:100%;aspect-ratio:1}
+.board-surface .board-resize-handle{
+  position:absolute;right:4px;bottom:4px;z-index:10;
+  width:31px;height:31px;display:flex;align-items:flex-end;justify-content:flex-end;
+  padding:5px;border:0;border-radius:0 0 3px 0;
+  background:linear-gradient(135deg,transparent 42%,rgba(38,53,44,.20) 100%);
+  box-shadow:none;cursor:nwse-resize;touch-action:none;
+  color:#fff;user-select:none;-webkit-user-select:none;
+}
+.board-surface .board-resize-handle:hover,
+.board-surface .board-resize-handle:focus-visible{
+  background:linear-gradient(135deg,transparent 15%,rgba(34,48,38,.40) 100%);
+  outline:0;
+}
+.board-surface .board-resize-handle:active,
+.board-surface .board-resize-handle.dragging{
+  background:linear-gradient(135deg,transparent 8%,rgba(34,48,38,.50) 100%);
+}
+.resize-lines{
+  display:block;width:17px;height:17px;
+  background:repeating-linear-gradient(135deg,transparent 0px,transparent 4px,#fff 4px,#fff 6.5px,transparent 6.5px,transparent 9px);
+  clip-path:polygon(100% 0,100% 100%,0 100%);
+  filter:drop-shadow(0 1px 1px #213226);
+  pointer-events:none;
+}
+@media(max-width:780px){.board-surface .board-resize-handle{right:4px;bottom:4px}}
