@@ -34,3 +34,15 @@
 .board-surface .board-resize-handle:hover::after{filter:drop-shadow(0 1px 2px #111)}
 .detailgrid.resizing,.detailgrid.resizing *{user-select:none!important}
 @media(max-width:780px){.boardcol{width:min(100%,var(--board-width,570px));margin-inline:auto}}
+
+/* Kidsgambit board palette: warm ivory, lilac and yellow move highlight. */
+:root{--kidsgambit-purple:#8E07E2;--kidsgambit-yellow:#FFD102}
+.realboard .white-1e1d7{background-color:#F5F0E8}
+.realboard .black-3c85d{background-color:#B989DE}
+.realboard{border-color:#6E28A0}
+.realboard .square-55d63.kidsgambit-lastmove{box-shadow:inset 0 0 0 999px rgba(255,209,2,.50)}
+.movesgrid button.active{background:#FFD102;color:#282324}
+.tab.active{background:#8E07E2;border-color:#8E07E2}
+.comment{border-left-color:#8E07E2}
+.eyebrow{color:#7C12C4}
+.gamecard:hover{border-color:#8E07E2}
