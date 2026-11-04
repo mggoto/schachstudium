@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f3ee"><title>Schachstudium – Eine Partie pro Tag</title>
 <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-<link rel="stylesheet" href="assets/style.css?v=own-analysis-1">
+<link rel="stylesheet" href="assets/style.css?v=own-analysis-2">
 <style>
 /* Kidsgambit-Farben direkt im HTML, damit eine alte CSS-Datei sie nicht verdeckt. */
 #board.realboard .square-55d63.white-1e1d7 { background: #F5F0E8 !important; }
@@ -15,7 +15,7 @@
 <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script defer src="assets/app.js?v=own-analysis-1"></script><script defer src="assets/own.js?v=own-analysis-1"></script>
+<script defer src="assets/app.js?v=own-analysis-1"></script><script defer src="assets/own.js?v=own-analysis-2"></script>
 </head>
 <body>
 <div class="shell">
@@ -37,7 +37,7 @@
  <div id="ownWorkspace" hidden>
    <div class="own-setup cardpanel">
     <div><div class="eyebrow">KI-ANALYSE · OPTIONAL</div><p>Der KI-Dienst muss einmalig separat eingerichtet werden. Ohne ihn kannst du jede PGN bereits durchspielen.</p></div>
-    <div class="own-settings"><input id="aiEndpoint" type="url" placeholder="https://dein-analyse-dienst.workers.dev/analyze" aria-label="Adresse des Analysedienstes"><input id="aiToken" type="password" placeholder="Privater Zugriffscode" aria-label="Privater Zugriffscode" autocomplete="off"><button id="ownAnalyze" class="primary">Mit KI kommentieren</button></div>
+    <div class="own-settings"><select id="ownColor" aria-label="Welche Farbe hast du gespielt?"><option value="white">Ich spielte Weiss</option><option value="black">Ich spielte Schwarz</option></select><input id="aiEndpoint" type="url" placeholder="https://dein-analyse-dienst.workers.dev/analyze" aria-label="Adresse des Analysedienstes"><input id="aiToken" type="password" placeholder="Privater Zugriffscode" aria-label="Privater Zugriffscode" autocomplete="off"><button id="ownAnalyze" class="primary">Mit KI kommentieren</button></div>
     <p class="own-status" id="ownAiStatus" role="status">Keine KI-Verbindung eingerichtet.</p>
    </div>
    <div class="detailhead"><div><div class="eyebrow">DEINE PARTIE</div><h1 id="ownTitle">Eigene Partie</h1><p id="ownMeta"></p></div><button id="ownDownload" class="download" type="button">Kommentierte PGN herunterladen</button></div>
