@@ -1,0 +1,30 @@
+[
+  {
+    "id": "alechin-vasic-1931",
+    "date": "2026-10-29",
+    "white": "Alexander Aljechin",
+    "black": "Vasić",
+    "year": 1931,
+    "result": "1-0",
+    "opening": "Französische Verteidigung – Winawer-Variante",
+    "eco": "C15",
+    "level": "1200",
+    "focus": "Läuferdiagonalen, Rochadeverhinderung und Bodens Matt",
+    "context": "Aljechin gewann diese historische Simultanpartie mit einem Damenopfer und einem Matt durch zwei Läufer.",
+    "pgn": "games/alechin-vasic-1931.pgn"
+  },
+  {
+    "id": "spassky-bronstein-1960",
+    "date": "2026-10-31",
+    "white": "Boris Spassky",
+    "black": "David Bronstein",
+    "year": 1960,
+    "result": "1-0",
+    "opening": "Angenommenes Königsgambit – Moderne Verteidigung",
+    "eco": "C36",
+    "level": "1200",
+    "focus": "Initiative gegen Material und Figurenkoordination",
+    "context": "Eine bekannte Königsgambit-Partie zwischen zwei grossen sowjetischen Meistern.",
+    "pgn": "games/spassky-bronstein-1960.pgn"
+  }
+]
