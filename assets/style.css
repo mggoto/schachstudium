@@ -14,39 +14,23 @@
 .boardwithbar .realboard{min-width:0}
 @media(max-width:780px){.boardwithbar{grid-template-columns:24px minmax(0,1fr);gap:5px}.evalnote{margin-left:29px}.evalbar-top,.evalbar-bottom{font-size:7px}}
 
-/* Manually resizable chessboard, preserving square proportions and the material bar. */
-.boardwithbar{position:relative}
-.board-resize-handle{position:absolute;right:-9px;bottom:10px;z-index:5;width:32px;height:32px;display:grid;place-items:center;border:1px solid #9da89b;border-radius:9px;background:#fffefa;box-shadow:0 1px 6px #24302626;color:#344737;font-size:21px;line-height:1;cursor:nwse-resize;touch-action:none;user-select:none;-webkit-user-select:none}
-.board-resize-handle:hover,.board-resize-handle:focus-visible{background:#e5eee1;outline:2px solid #7b947c;outline-offset:2px}
-.board-resize-handle:active,.board-resize-handle.dragging{background:#d4e6d0}
-.detailgrid.resizing,.detailgrid.resizing *{user-select:none!important}
-@media(max-width:780px){.boardcol{width:min(100%,var(--board-width,570px));margin-inline:auto}.board-resize-handle{right:0}}
 
-/* Resize corner integrated into the board's bottom-right square. */
+/* Unauffälliger Resize-Griff direkt im Brett, ohne Button-Hintergrund. */
+.boardwithbar{position:relative}
 .board-surface{position:relative;min-width:0;width:100%;aspect-ratio:1}
 .board-surface .realboard{width:100%;height:100%;aspect-ratio:1}
 .board-surface .board-resize-handle{
-  position:absolute;right:4px;bottom:4px;z-index:10;
-  width:31px;height:31px;display:flex;align-items:flex-end;justify-content:flex-end;
-  padding:5px;border:0;border-radius:0 0 3px 0;
-  background:linear-gradient(135deg,transparent 42%,rgba(38,53,44,.20) 100%);
-  box-shadow:none;cursor:nwse-resize;touch-action:none;
-  color:#fff;user-select:none;-webkit-user-select:none;
+  all:unset;box-sizing:border-box;position:absolute;z-index:20;right:5px;bottom:5px;
+  display:block;width:26px;height:26px;padding:0;margin:0;
+  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  cursor:nwse-resize;touch-action:none;user-select:none;-webkit-user-select:none;
 }
-.board-surface .board-resize-handle:hover,
-.board-surface .board-resize-handle:focus-visible{
-  background:linear-gradient(135deg,transparent 15%,rgba(34,48,38,.40) 100%);
-  outline:0;
+.board-surface .board-resize-handle::after{
+  content:"";position:absolute;right:2px;bottom:2px;width:17px;height:17px;
+  background:repeating-linear-gradient(135deg,transparent 0,transparent 5px,rgba(255,255,255,.94) 5px,rgba(255,255,255,.94) 7px,transparent 7px,transparent 10px);
+  clip-path:polygon(100% 0,100% 100%,0 100%);pointer-events:none;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.40));
 }
-.board-surface .board-resize-handle:active,
-.board-surface .board-resize-handle.dragging{
-  background:linear-gradient(135deg,transparent 8%,rgba(34,48,38,.50) 100%);
-}
-.resize-lines{
-  display:block;width:17px;height:17px;
-  background:repeating-linear-gradient(135deg,transparent 0px,transparent 4px,#fff 4px,#fff 6.5px,transparent 6.5px,transparent 9px);
-  clip-path:polygon(100% 0,100% 100%,0 100%);
-  filter:drop-shadow(0 1px 1px #213226);
-  pointer-events:none;
-}
-@media(max-width:780px){.board-surface .board-resize-handle{right:4px;bottom:4px}}
+.board-surface .board-resize-handle:hover::after{filter:drop-shadow(0 1px 2px #111)}
+.detailgrid.resizing,.detailgrid.resizing *{user-select:none!important}
+@media(max-width:780px){.boardcol{width:min(100%,var(--board-width,570px));margin-inline:auto}}
