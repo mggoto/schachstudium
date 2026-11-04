@@ -4,11 +4,18 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f3ee"><title>Schachstudium – Eine Partie pro Tag</title>
 <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-<link rel="stylesheet" href="assets/style.css?v=kidsgambit-1">
+<link rel="stylesheet" href="assets/style.css?v=kidsgambit-2">
+<style>
+/* Kidsgambit-Farben direkt im HTML, damit eine alte CSS-Datei sie nicht verdeckt. */
+#board.realboard .square-55d63.white-1e1d7 { background: #F5F0E8 !important; }
+#board.realboard .square-55d63.black-3c85d { background: #B989DE !important; }
+#board.realboard .square-55d63.kidsgambit-lastmove { box-shadow: inset 0 0 0 999px rgba(255,209,2,.50) !important; }
+#board.realboard { border-color: #6E28A0 !important; }
+</style>
 <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script defer src="assets/app.js?v=kidsgambit-1"></script>
+<script defer src="assets/app.js?v=kidsgambit-2"></script>
 </head>
 <body>
 <div class="shell">
