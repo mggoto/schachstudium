@@ -26,5 +26,19 @@
     "focus": "Initiative gegen Material und Figurenkoordination",
     "context": "Eine bekannte Königsgambit-Partie zwischen zwei grossen sowjetischen Meistern.",
     "pgn": "games/spassky-bronstein-1960.pgn"
+  },
+  {
+    "id": "morphy-opera-1858",
+    "date": "2026-11-06",
+    "white": "Paul Morphy",
+    "black": "Herzog von Braunschweig und Graf Isouard",
+    "year": 1858,
+    "result": "1-0",
+    "opening": "Philidor-Verteidigung",
+    "eco": "C41",
+    "level": "1200",
+    "focus": "Entwicklungsvorsprung, offene Linien und Mattangriff",
+    "context": "Die berühmte Opernpartie zeigt, warum schnelle Entwicklung und Königssicherheit wichtiger sein können als Material. Achte besonders auf die offene d-Linie und das Schlussmotiv.",
+    "pgn": "games/morphy-opera-1858.pgn"
   }
 ]
