@@ -40,5 +40,19 @@
     "focus": "Entwicklungsvorsprung, offene Linien und Mattangriff",
     "context": "Die berühmte Opernpartie zeigt, warum schnelle Entwicklung und Königssicherheit wichtiger sein können als Material. Achte besonders auf die offene d-Linie und das Schlussmotiv.",
     "pgn": "games/morphy-opera-1858.pgn"
+  },
+  {
+    "id": "anderssen-kieseritzky-1851",
+    "date": "2026-11-07",
+    "white": "Adolf Anderssen",
+    "black": "Lionel Kieseritzky",
+    "year": 1851,
+    "result": "1-0",
+    "opening": "Angenommenes Königsgambit",
+    "eco": "C33",
+    "level": "1200",
+    "focus": "Entwicklung, Initiative und Mattangriff trotz Materialnachteil",
+    "context": "Die Unsterbliche Partie: Anderssen opfert beide Türme und schliesslich die Dame. Beobachte, wie aktive Figuren und konkrete Drohungen wichtiger werden als der Materialstand.",
+    "pgn": "games/anderssen-kieseritzky-1851.pgn"
   }
 ]
