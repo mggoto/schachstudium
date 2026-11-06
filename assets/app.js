@@ -67,25 +67,44 @@ function show(page){
   if(own)requestAnimationFrame(()=>window.ownChessResize?.());
   window.scrollTo({top:0,behavior:'instant'});
 }
-function drawArchive(){
-  const now=calendarDate();const available=state.games.filter(g=>g.date<=now).sort((a,b)=>b.date.localeCompare(a.date));
-  $id('total').textContent=String(available.length);$id('todayLabel').textContent=niceDate(now);
-  const byDate=new Map(available.map(g=>[g.date,g]));
-  const start=weekStart(available.at(-1)?.date || now),end=weekStart(now);
-  let weeks='';
-  for(let mon=end;mon>=start;mon=addDays(mon,-7)){
-    const sunday=addDays(mon,6);
-    const cards=Array.from({length:7},(_,i)=>{
-      const day=addDays(mon,i),g=byDate.get(day),stamp=utc(day),label=`${weekdays[i]} · ${String(stamp.getUTCDate()).padStart(2,'0')}`;
-      if(!g)return `<div class="gamecard empty"><div class="top"><span class="date">${label}</span></div><div class="emptytext">${day>now?'Noch nicht erschienen':'Keine Partie hinterlegt'}</div></div>`;
-      const whiteWinner=g.result==='1-0',blackWinner=g.result==='0-1';
-      return `<button class="gamecard" data-game="${esc(g.id)}" aria-label="${esc(g.white)} gegen ${esc(g.black)} öffnen"><div class="top"><span class="date">${label}</span><span class="pill">~${esc(g.level)}</span></div><div class="players"><div class="player"><i class="piece"></i><span class="name">${esc(g.white)}</span>${whiteWinner?'<span class="winner">✓</span>':''}</div><div class="player"><i class="piece black"></i><span class="name">${esc(g.black)}</span>${blackWinner?'<span class="winner">✓</span>':''}</div></div><div class="cardfoot"><div class="opening">${esc(g.opening)}</div><div class="meta">${esc(g.year)} · ${esc(g.result)}</div></div></button>`;
-    }).join('');
-    weeks+=`<section><div class="week-head"><strong>${niceDate(mon)} – ${niceDate(sunday)}</strong><small>Mo–So</small></div><div class="weeks-wrap"><div class="week-days">${weekdays.map(d=>`<div class="weekday">${d}</div>`).join('')}</div><div class="week-days">${cards}</div></div></section>`;
-  }
-  $id('weeks').innerHTML=weeks;
-  document.querySelectorAll('[data-game]').forEach(el=>el.addEventListener('click',()=>openGame(el.dataset.game)));
+const learningKey='kidsgambit.lab.learning.v1';
+let learning={};
+try { const stored=JSON.parse(localStorage.getItem(learningKey)||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))learning=stored; }catch(_){}
+const studyStatus=id=>['new','working','learned'].includes(learning[id])?learning[id]:'new';
+function saveStudyStatus(id,value){
+ if(!['new','working','learned'].includes(value))return;
+ if(value==='new')delete learning[id];else learning[id]=value;
+ try{localStorage.setItem(learningKey,JSON.stringify(learning));}catch(_){}
+ if(state.selected?.id===id)$id('detailLearnStatus').value=value;
+ drawArchive();
 }
+function drawArchive(){
+ const games=[...state.games].sort((a,b)=>Number(b.year)-Number(a.year));
+ const done=games.filter(g=>studyStatus(g.id)==='learned').length;
+ $id('total').textContent=String(games.length);
+ $id('learnedCount').textContent=done+' von '+games.length+' gelernt';
+ const pct=games.length?Math.round(100*done/games.length):0;
+ $id('progressFill').style.width=pct+'%';
+ $id('progressTrack').setAttribute('aria-valuenow',String(pct));
+ const query=$id('librarySearch').value.trim().toLocaleLowerCase('de-CH');
+ const filter=$id('libraryFilter').value;
+ const filtered=games.filter(g=>(filter==='all'||studyStatus(g.id)===filter)&&[g.white,g.black,g.opening,g.focus,g.year,g.context].join(' ').toLocaleLowerCase('de-CH').includes(query));
+ const statusText={new:'Noch nicht gelernt',working:'In Bearbeitung',learned:'Gelernt ✓'};
+ $id('weeks').innerHTML=filtered.map(g=>{
+  const status=studyStatus(g.id);
+  return `<article class="library-card ${status}" data-id="${esc(g.id)}">
+   <div class="library-card-top"><span class="library-year">${esc(g.year)}</span><span class="library-status ${status}">${statusText[status]}</span></div>
+   <h2>${esc(g.white)} <span>gegen</span> ${esc(g.black)}</h2>
+   <p class="library-opening">${esc(g.opening)} · ${esc(g.eco)}</p>
+   <p class="library-focus">${esc(g.focus)}</p>
+   <div class="library-card-bottom"><span>${esc(g.result)} · Lernniveau ~${esc(g.level)}</span><button type="button" class="library-open" data-game="${esc(g.id)}">Partie studieren →</button></div>
+  </article>`;
+ }).join('')||'<p class="library-empty">Keine passenden Partien gefunden. Ändere den Suchbegriff oder den Filter.</p>';
+ document.querySelectorAll('[data-game]').forEach(el=>el.addEventListener('click',()=>openGame(el.dataset.game)));
+}
+$id('librarySearch').addEventListener('input',drawArchive);
+$id('libraryFilter').addEventListener('change',drawArchive);
+$id('detailLearnStatus').addEventListener('change',e=>{if(state.selected)saveStudyStatus(state.selected.id,e.target.value);});
 function parseAnnotatedPgn(pgn){
   const body=pgn.replace(/^\s*\[[^\n]*\]\s*$/gm,' ');
   const tokens=body.match(/\{[^}]*\}|[^\s{}]+/g)||[];
@@ -106,7 +125,8 @@ async function openGame(id){
   state.selected=game;
   $id('detailBtn').disabled=false;
   $id('detailTitle').textContent=`${game.white} – ${game.black} · ${game.year}`;
-  $id('detailDate').textContent=niceDate(game.date)+' · '+game.result;
+  $id('detailDate').textContent='Historische Partie · '+game.result;
+  $id('detailLearnStatus').value=studyStatus(game.id);
   $id('detailMeta').textContent=`${game.opening} (${game.eco}) · Lernniveau ca. ${game.level}`;
   $id('openingName').textContent=game.opening;$id('openingCode').textContent=`ECO ${game.eco} · ${game.year}`;
   $id('openingFocus').textContent='Lernschwerpunkt: '+game.focus;
