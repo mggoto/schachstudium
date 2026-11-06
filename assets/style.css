@@ -86,3 +86,38 @@
 .own-settings{grid-template-columns:minmax(150px,.7fr) minmax(0,1.6fr) minmax(0,1fr) auto}
 @media(max-width:1080px){.own-settings{grid-template-columns:1fr 1fr}.own-settings button{grid-column:1/-1}}
 @media(max-width:780px){.own-settings{grid-template-columns:1fr}.own-settings button{grid-column:1}}
+
+
+/* Kidsgambit Lab – responsive study library */
+.library-progress{margin:0 0 20px;padding:19px 22px}
+.progress-top{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px;margin-bottom:12px}
+.progress-top span{color:#6b6b70;font-size:13px;font-weight:700}
+.progress-track{height:10px;border-radius:30px;background:#eee8f3;overflow:hidden}
+#progressFill{height:100%;width:0;background:#8E07E2;border-radius:30px;transition:width .25s ease}
+.library-tools{display:flex;gap:14px;align-items:end;flex-wrap:wrap;margin:0 0 20px}
+.library-search-label,.library-filter-label,.detail-status-label{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:750;color:#4c4055}
+.library-search-label{flex:1;min-width:220px}
+.library-search-label input,.library-filter-label select,.detail-status-label select{border:1px solid #dcd3e4;background:#fff;color:#33283c;border-radius:9px;padding:11px 12px;font:inherit;font-size:13px;min-height:42px}
+.library-search-label input:focus,.library-filter-label select:focus,.detail-status-label select:focus{outline:2px solid #8E07E2;outline-offset:1px}
+.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:16px}
+.library-card{border:1px solid #e4dce9;background:white;border-radius:16px;padding:19px;display:flex;flex-direction:column;min-height:250px;transition:transform .15s,border-color .15s,background .15s}
+.library-card:hover{transform:translateY(-2px);border-color:#8E07E2}
+.library-card.working{border-color:#c1a0e0;background:#fcf9ff}
+.library-card.learned{border-color:#a5c9a9;background:#f1f8f0}
+.library-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.library-year{font-size:12px;font-weight:800;color:#76677e}
+.library-status{font-size:11px;font-weight:800;padding:5px 9px;border-radius:30px;background:#f0edf2;color:#6e6473}
+.library-status.working{background:#f0e4fc;color:#7130a2}
+.library-status.learned{background:#d9efdc;color:#27633c}
+.library-card h2{font-size:19px;letter-spacing:-.035em;line-height:1.25;margin:19px 0 9px}
+.library-card h2 span{font-size:13px;font-weight:500;color:#777}
+.library-opening{font-size:13px;color:#5d5065;margin:0 0 8px}
+.library-focus{font-size:12px;line-height:1.5;color:#77717b;margin:0 0 18px}
+.library-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;border-top:1px solid #eee8f0;padding-top:13px}
+.library-card-bottom span{font-size:11px;color:#817989}
+.library-open{cursor:pointer;background:#8E07E2;border:1px solid #8E07E2;color:white;border-radius:8px;padding:9px 11px;font-size:12px;font-weight:800}
+.library-open:hover{background:#7010ae}
+.library-empty{grid-column:1/-1;padding:30px;color:#777}
+.detailActions{display:flex;align-items:end;gap:12px;flex-wrap:wrap}
+.detail-status-label select{min-width:175px}
+@media(max-width:780px){.library-grid{grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:12px}.library-card{min-height:225px}.library-progress{padding:15px}.detailActions{width:100%}.detail-status-label{flex:1}.masthead{flex-wrap:wrap}.headright{width:100%;justify-content:flex-start}}
