@@ -54,5 +54,33 @@
     "focus": "Entwicklung, Initiative und Mattangriff trotz Materialnachteil",
     "context": "Die Unsterbliche Partie: Anderssen opfert beide Türme und schliesslich die Dame. Beobachte, wie aktive Figuren und konkrete Drohungen wichtiger werden als der Materialstand.",
     "pgn": "games/anderssen-kieseritzky-1851.pgn"
+  },
+  {
+    "id": "reti-tartakower-1910",
+    "date": "2026-11-08",
+    "white": "Richard Réti",
+    "black": "Savielly Tartakower",
+    "year": 1910,
+    "result": "1-0",
+    "opening": "Caro-Kann-Verteidigung",
+    "eco": "B15",
+    "level": "1200",
+    "focus": "Offene Linien, Damenopfer und Mattnetz mit Turm und Läufern",
+    "context": "Wien, 1910: eine berühmte Kurzpartie. Réti nutzt die offene d-Linie, lockt den schwarzen König mit einem Damenopfer auf d8 und setzt mit einem Läufer matt. Beachte besonders 8. O-O-O und die Kombination ab 9. Dd8+.",
+    "pgn": "games/reti-tartakower-1910.pgn"
+  },
+  {
+    "id": "paulsen-morphy-1857",
+    "date": "2026-11-09",
+    "white": "Louis Paulsen",
+    "black": "Paul Morphy",
+    "year": 1857,
+    "result": "0-1",
+    "opening": "Vierspringerspiel – Spanische Variante",
+    "eco": "C48",
+    "level": "1200",
+    "focus": "Damenopfer, Turmschwenk und Koordination der Angriffsfiguren",
+    "context": "New York, 1857: Im ersten amerikanischen Schachkongress zeigt Morphy, wie er mit beiden Türmen und Läufern einen Königsangriff vorbereitet. Die Kombination 17...Dxf3 funktioniert wegen des anschliessenden Turmschwenks auf die offene g-Linie. Paulsen gibt nach 28...Le3 auf.",
+    "pgn": "games/paulsen-morphy-1857.pgn"
   }
 ]
