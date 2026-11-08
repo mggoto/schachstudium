@@ -1,0 +1,12 @@
+[Event "Casual game"]
+[Site "Vienna"]
+[Date "1910.??.??"]
+[White "Richard Reti"]
+[Black "Savielly Tartakower"]
+[Result "1-0"]
+[ECO "B15"]
+[Opening "Caro-Kann Defence"]
+[Annotator "Kidsgambit Lab – didaktische Zugkommentare"]
+[Source "https://chesstrapguide.com/learn/reti-tartakower-1910-pgn/"]
+
+1. e4 {Weiss besetzt das Zentrum und öffnet die Diagonalen für Läufer und Dame.} c6 {Schwarz bereitet mit der Caro-Kann-Verteidigung den Bauernvorstoss ...d5 vor.} 2. d4 {Weiss baut ein starkes Bauernzentrum auf und kontrolliert e5.} d5 {Schwarz greift den Bauern e4 direkt an und stellt das Zentrum infrage.} 3. Nc3 {Der Springer verteidigt e4 und entwickelt sich auf ein aktives Feld.} dxe4 {Schwarz tauscht den d-Bauern gegen den weissen e-Bauern und öffnet die d-Linie.} 4. Nxe4 {Weiss schlägt mit dem Springer zurück und setzt ihn zentral ein.} Nf6 {Schwarz entwickelt den Springer und greift den weissen Springer e4 an.} 5. Qd3 {Die Dame deckt den Springer e4 und hält die Möglichkeit einer langen Rochade offen.} e5 {Schwarz greift das weisse Zentrum mit einem weiteren Bauern an; sein König steht noch auf e8.} 6. dxe5 {Weiss schlägt den e-Bauern und öffnet weitere Linien im Zentrum.} Qa5+ {Die schwarze Dame gibt Schach auf der Diagonale a5–e1 und zwingt Weiss zur Abwehr.} 7. Bd2 {Der Läufer stellt sich zwischen Dame und König; gleichzeitig wird die lange Rochade vorbereitet.} Qxe5 {Schwarz gewinnt den vorgerückten weissen Bauern e5 zurück, doch die Dame steht nun früh im Zentrum.} 8. O-O-O {Weiss bringt den König nach c1 und stellt seinen Turm auf die offene d-Linie gegen den schwarzen König.} Nxe4 {Der schwarze Springer schlägt den weissen Springer e4 und gewinnt Material, übersieht aber die Gefahr auf der d-Linie.} 9. Qd8+ {Ein Damenopfer mit Schach: Schwarz muss die Dame nehmen, worauf sein König auf der offenen d-Linie steht.} Kxd8 {Der König nimmt die Dame auf d8; Weiss hat nun keine Dame mehr, aber einen unmittelbaren Mattangriff.} 10. Bg5+ {Der Läufer zieht von d2 nach g5 und räumt die d-Linie für den Turm auf d1: Das Schach kommt vom Turm.} Kc7 {Der König flüchtet nach c7, hat dort aber kaum Fluchtfelder.} 11. Bd8# {Der Läufer von g5 zieht über f6 und e7 nach d8 und setzt matt. Der Turm auf d1 deckt den Läufer.} 1-0
