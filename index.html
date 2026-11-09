@@ -15,7 +15,7 @@
 <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script defer src="assets/app.js?v=library-1"></script><script defer src="assets/own.js?v=own-analysis-2"></script>
+<script defer src="assets/app.js?v=copy-pgn-1"></script><script defer src="assets/own.js?v=own-analysis-2"></script>
 </head>
 <body>
 <div class="shell">
@@ -53,7 +53,7 @@
 </section>
 <section id="detail" class="detail" hidden>
   <button class="backlink" id="backBtn">← Zur Partienbibliothek</button>
-  <div class="detailhead"><div><div class="eyebrow" id="detailDate"></div><h1 id="detailTitle"></h1><p id="detailMeta"></p></div><div class="detailActions"><label class="detail-status-label" for="detailLearnStatus">Mein Lernstatus<select id="detailLearnStatus"><option value="new">Noch nicht gelernt</option><option value="working">In Bearbeitung</option><option value="learned">Gelernt ✓</option></select></label><a class="download" id="pgnLink" href="#" download>PGN herunterladen ↓</a></div></div>
+  <div class="detailhead"><div><div class="eyebrow" id="detailDate"></div><h1 id="detailTitle"></h1><p id="detailMeta"></p></div><div class="detailActions"><label class="detail-status-label" for="detailLearnStatus">Mein Lernstatus<select id="detailLearnStatus"><option value="new">Noch nicht gelernt</option><option value="working">In Bearbeitung</option><option value="learned">Gelernt ✓</option></select></label><a class="download" id="pgnLink" href="#" download>PGN herunterladen ↓</a><button class="download" id="pgnCopyBtn" type="button" aria-live="polite">PGN kopieren</button></div></div>
   <div class="detailgrid">
     <div class="boardcol"><div class="boardwithbar"><div class="evalbar-wrap" aria-label="Stockfish-Stellungsbewertung" role="group"><div class="evalbar" id="evalBar" role="img" aria-label="Stockfish-Bewertung lädt"><div id="evalWhite" class="evalwhite"></div><div id="evalBlack" class="evalblack"></div><span class="evalbar-top">Schwarz</span><span class="evalbar-bottom">Weiss</span></div><div class="evalbar-score" id="evalScore" aria-live="polite">0</div></div><div class="board-surface"><div id="board" class="realboard"></div><div id="resizeBoard" class="board-resize-handle" role="button" tabindex="0" title="Brettgrösse ändern"></div></div></div><p class="evalnote" id="evalNote">Stockfish-Bewertung wird geladen</p><div id="error" role="alert" class="error" hidden></div><div class="controls"><button id="first" title="Anfang">⏮</button><button id="prev" title="Vorheriger Halbzug">←</button><span id="moveProgress" class="moveProgress"></span><button id="next" title="Nächster Halbzug">→</button><button id="last" title="Ende">⏭</button><button id="flip" title="Brett drehen">↻</button></div></div>
     <aside class="sidebar"><section class="comment cardpanel" aria-live="polite"><div class="eyebrow">AKTUELLER ZUG</div><h2 id="commentTitle">Startstellung</h2><p id="commentText">Wähle einen Zug.</p></section><section class="openingbox cardpanel"><div class="eyebrow">GESPIELTE ERÖFFNUNG</div><h3 id="openingName"></h3><p id="openingCode"></p><p id="openingFocus"></p></section><section class="movesbox cardpanel"><div class="moveshead"><h3>Gesamte Zugfolge</h3><span id="moveCount"></span></div><div id="moves" class="movesgrid"></div></section></aside>
