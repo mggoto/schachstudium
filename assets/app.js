@@ -132,6 +132,8 @@ async function openGame(id){
   $id('openingFocus').textContent='Lernschwerpunkt: '+game.focus;
   $id('pgnLink').href=game.pgn;
   $id('pgnLink').download=game.pgn.split('/').pop();
+  $id('pgnCopyBtn').textContent='PGN kopieren';
+  $id('pgnCopyBtn').disabled=false;
   show('detail');
   $id('commentTitle').textContent='Partie wird geladen';$id('commentText').textContent=game.context;
   try{
@@ -201,6 +203,32 @@ function renderMove(){
  const active=document.querySelector('[data-ply].active');
  if(active){const panel=$id('moves');const top=active.offsetTop-panel.offsetTop;if(top<panel.scrollTop||top>panel.scrollTop+panel.clientHeight-40) panel.scrollTop=Math.max(0,top-100);}
 }
+$id('pgnCopyBtn').addEventListener('click',async()=>{
+  const btn=$id('pgnCopyBtn');
+  const selected=state.selected;
+  if(!selected||btn.disabled)return;
+  btn.disabled=true;
+  try{
+    const res=await fetch(selected.pgn,{cache:'no-store'});
+    if(!res.ok)throw Error('PGN konnte nicht geladen werden.');
+    const content=await res.text();
+    if(!content.trim())throw Error('PGN ist leer.');
+    if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(content);
+    else{
+      const textarea=document.createElement('textarea');
+      textarea.value=content;textarea.style.position='fixed';textarea.style.opacity='0';
+      document.body.appendChild(textarea);textarea.select();
+      const ok=document.execCommand('copy');textarea.remove();
+      if(!ok)throw Error('Kopieren nicht unterstützt.');
+    }
+    btn.textContent='PGN kopiert ✓';
+  }catch(err){
+    btn.textContent='Kopieren fehlgeschlagen';
+    btn.title=err.message;
+  }finally{
+    btn.disabled=false;
+  }
+});
 $id('homeBtn').onclick=()=>show('home');$id('ownBtn').onclick=()=>show('own');$id('detailBtn').onclick=()=>show('detail');$id('backBtn').onclick=()=>show('home');$id('logo').onclick=e=>{e.preventDefault();show('home');};
 $id('first').onclick=()=>jump(0);$id('prev').onclick=()=>jump(state.index-1);$id('next').onclick=()=>jump(state.index+1);$id('last').onclick=()=>jump(state.history.length);
 $id('flip').onclick=()=>state.board?.flip();
