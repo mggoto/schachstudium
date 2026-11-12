@@ -11,7 +11,12 @@
     "level": "1200",
     "focus": "Läuferdiagonalen, Rochadeverhinderung und Bodens Matt",
     "context": "Aljechin gewann diese historische Simultanpartie mit einem Damenopfer und einem Matt durch zwei Läufer.",
-    "pgn": "games/alechin-vasic-1931.pgn"
+    "pgn": "games/alechin-vasic-1931.pgn",
+    "topics": [
+      "Königsangriff",
+      "Taktik & Opfer",
+      "Figurenkoordination"
+    ]
   },
   {
     "id": "spassky-bronstein-1960",
@@ -25,7 +30,12 @@
     "level": "1200",
     "focus": "Initiative gegen Material und Figurenkoordination",
     "context": "Eine bekannte Königsgambit-Partie zwischen zwei grossen sowjetischen Meistern.",
-    "pgn": "games/spassky-bronstein-1960.pgn"
+    "pgn": "games/spassky-bronstein-1960.pgn",
+    "topics": [
+      "Königsangriff",
+      "Taktik & Opfer",
+      "Initiative"
+    ]
   },
   {
     "id": "morphy-opera-1858",
@@ -39,7 +49,13 @@
     "level": "1200",
     "focus": "Entwicklungsvorsprung, offene Linien und Mattangriff",
     "context": "Die berühmte Opernpartie zeigt, warum schnelle Entwicklung und Königssicherheit wichtiger sein können als Material. Achte besonders auf die offene d-Linie und das Schlussmotiv.",
-    "pgn": "games/morphy-opera-1858.pgn"
+    "pgn": "games/morphy-opera-1858.pgn",
+    "topics": [
+      "Entwicklung",
+      "Königsangriff",
+      "Offene Linien",
+      "Taktik & Opfer"
+    ]
   },
   {
     "id": "anderssen-kieseritzky-1851",
@@ -53,7 +69,12 @@
     "level": "1200",
     "focus": "Entwicklung, Initiative und Mattangriff trotz Materialnachteil",
     "context": "Die Unsterbliche Partie: Anderssen opfert beide Türme und schliesslich die Dame. Beobachte, wie aktive Figuren und konkrete Drohungen wichtiger werden als der Materialstand.",
-    "pgn": "games/anderssen-kieseritzky-1851.pgn"
+    "pgn": "games/anderssen-kieseritzky-1851.pgn",
+    "topics": [
+      "Königsangriff",
+      "Taktik & Opfer",
+      "Initiative"
+    ]
   },
   {
     "id": "reti-tartakower-1910",
@@ -67,7 +88,12 @@
     "level": "1200",
     "focus": "Offene Linien, Damenopfer und Mattnetz mit Turm und Läufern",
     "context": "Wien, 1910: eine berühmte Kurzpartie. Réti nutzt die offene d-Linie, lockt den schwarzen König mit einem Damenopfer auf d8 und setzt mit einem Läufer matt. Beachte besonders 8. O-O-O und die Kombination ab 9. Dd8+.",
-    "pgn": "games/reti-tartakower-1910.pgn"
+    "pgn": "games/reti-tartakower-1910.pgn",
+    "topics": [
+      "Offene Linien",
+      "Taktik & Opfer",
+      "Mattmotive"
+    ]
   },
   {
     "id": "paulsen-morphy-1857",
@@ -81,7 +107,12 @@
     "level": "1200",
     "focus": "Damenopfer, Turmschwenk und Koordination der Angriffsfiguren",
     "context": "New York, 1857: Im ersten amerikanischen Schachkongress zeigt Morphy, wie er mit beiden Türmen und Läufern einen Königsangriff vorbereitet. Die Kombination 17...Dxf3 funktioniert wegen des anschliessenden Turmschwenks auf die offene g-Linie. Paulsen gibt nach 28...Le3 auf.",
-    "pgn": "games/paulsen-morphy-1857.pgn"
+    "pgn": "games/paulsen-morphy-1857.pgn",
+    "topics": [
+      "Königsangriff",
+      "Taktik & Opfer",
+      "Figurenkoordination"
+    ]
   },
   {
     "id": "rotlewi-rubinstein-1907",
@@ -95,7 +126,12 @@
     "level": "1200",
     "focus": "Figurenkoordination, Linienöffnung und Angriff trotz Damenverlust",
     "context": "Rubinsteins berühmte Kombination zeigt, wie Türme und Läufer zusammen einen Angriff tragen. Achte ab 19...Lb6+ besonders darauf, welche Felder um den weissen König schwach werden und weshalb 22...Txc3 funktioniert.",
-    "pgn": "games/rotlewi-rubinstein-1907.pgn"
+    "pgn": "games/rotlewi-rubinstein-1907.pgn",
+    "topics": [
+      "Figurenkoordination",
+      "Königsangriff",
+      "Taktik & Opfer"
+    ]
   },
   {
     "id": "lasker-bauer-1889",
@@ -109,6 +145,11 @@
     "level": "1200",
     "focus": "Doppelläuferopfer, Turmhebung und Angriff auf die Königsstellung",
     "context": "Lasker opfert nacheinander beide Läufer, um den schwarzen König freizulegen. Der entscheidende Lernpunkt ist nicht das Opfer allein, sondern die vorbereitete Turmhebung über f3 nach h3.",
-    "pgn": "games/lasker-bauer-1889.pgn"
+    "pgn": "games/lasker-bauer-1889.pgn",
+    "topics": [
+      "Königsangriff",
+      "Taktik & Opfer",
+      "Mattmotive"
+    ]
   }
 ]
