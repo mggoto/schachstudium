@@ -1,0 +1,49 @@
+[Event "Amsterdam"]
+[Site "Amsterdam"]
+[Date "1889.??.??"]
+[White "Emanuel Lasker"]
+[Black "Johann Bauer"]
+[Result "1-0"]
+[ECO "A03"]
+[Annotator "Kidsgambit Lab – didaktische Kommentare"]
+[Source "https://chessmotion.com/explore/famous-chess-games/lasker-bauer-double-bishop-sacrifice"]
+
+1. f4 {Lasker beginnt mit der Bird-Eröffnung. Der f-Bauer kontrolliert e5, legt aber den Königsflügel etwas frei.} d5 {Bauer besetzt das Zentrum; Schwarz beantwortet den Flügelvorstoss mit zentralem Raum.}
+2. e3 {Weiss stärkt das Feld d4 und öffnet dem Läufer f1 eine Diagonale.} Nf6 {Schwarz entwickelt den Springer und kontrolliert die Zentralfelder e4 und d5.}
+3. b3 {Der Damenläufer soll auf b2 die lange Diagonale besetzen.} e6 {Schwarz stützt d5 und öffnet dem Läufer f8 den Weg.}
+4. Bb2 {Der Läufer nimmt die Diagonale b2–h8 ins Visier, insbesondere das zentrale Feld e5.} Be7 {Schwarz entwickelt den Läufer und bereitet die kurze Rochade vor.}
+5. Bd3 {Der Läufer zielt auf h7 und unterstützt die Kontrolle über e4.} b6 {Auch Schwarz bereitet das Fianchetto des Damenläufers vor.}
+6. Nf3 {Der Springer entwickelt sich, deckt wichtige Felder und unterstützt die baldige Rochade.} Bb7 {Der schwarze Läufer steht auf der langen Diagonale b7–h1.}
+7. Nc3 {Weiss entwickelt den zweiten Springer und erhöht den Einfluss auf e4 und d5.} Nbd7 {Der schwarze Damenspringer entwickelt sich, ohne die Bauernstruktur zu verändern.}
+8. O-O {Lasker rochiert und bringt den König vor Beginn möglicher Angriffe in Sicherheit.} O-O {Auch Schwarz rochiert; sein König steht hinter einer zunächst intakten Bauernkette.}
+9. Ne2 {Der Springer zieht von c3 nach e2. Von dort kann er über g3 zum Königsflügel gelangen.} c5 {Schwarz hinterfragt die weisse Mitte mit dem c-Bauern und schafft Raum.}
+10. Ng3 {Der Springer erreicht g3 und schaut auf die schwarzen Königsfelder h5 und f5.} Qc7 {Die Dame unterstützt zentrale und königsseitige Felder, darunter die Diagonale zum König.}
+11. Ne5 {Der Springer f3 besetzt ein starkes Vorpostenfeld und greift schwarze Figurenfelder an.} Nxe5 {Schwarz beseitigt den aktiven Springer, bevor er weiter stören kann.}
+12. Bxe5 {Der Läufer von b2 schlägt zurück und besetzt das Zentrum; er bleibt in Richtung Königsflügel aktiv.} Qc6 {Die Dame stellt sich auf die Diagonale c6–h1 und übt zusätzlichen Druck aus.}
+13. Qe2 {Weiss entwickelt die Dame und hält sie bereit, am Königsangriff mitzuwirken.} a6 {Schwarz sichert Raum am Damenflügel und nimmt b5 unter Kontrolle.}
+14. Nh5 {Der Springer g3 springt nach h5 und greift die schwarze Königsdeckung an.} Nxh5 {Schwarz tauscht den vorgeschobenen Springer ab. Dadurch entsteht ein konkretes Angriffsmotiv für Weiss.}
+15. Bxh7+ {Der Läufer von d3 opfert sich auf h7: Der König wird aus seiner Bauernstellung gelockt.} Kxh7 {Der König nimmt den Läufer. Schwarz hat Material gewonnen, muss sich aber mit offenen Linien verteidigen.}
+16. Qxh5+ {Die weisse Dame schlägt den Springer h5 mit Schach und steht unmittelbar neben dem schwarzen König.} Kg8 {Der König kehrt in die Nähe seiner Ausgangsstellung zurück; die Königsbauern sind nun verwundbar.}
+17. Bxg7 {Der verbliebene weisse Läufer schlägt auf g7: Das zweite Läuferopfer reisst den Bauernschutz weiter auf.} Kxg7 {Schwarz nimmt auch diesen Läufer. Der König ist materiell vorne, steht aber offen.}
+18. Qg4+ {Die Dame gibt Schach und zwingt Schwarz zu einer weiteren Königsreaktion.} Kh7 {Der König weicht nach h7 aus. Für Weiss sind jetzt aktive Schwerfiguren entscheidend.}
+19. Rf3 {Der Turm f1 wird über die dritte Reihe in Richtung h3 geführt. Diese Turmhebung ist die Pointe der Opfer.} e5 {Schwarz stösst im Zentrum vor und versucht, sich Gegenspiel zu verschaffen.}
+20. Rh3+ {Der Turm erreicht h3 mit Schach und nutzt den durch die Läuferopfer geöffneten Königsflügel.} Qh6 {Die Dame blockiert das Schach auf h6. Nun muss Weiss genau rechnen.}
+21. Rxh6+ {Der Turm nimmt die Dame mit Schach. Das aktive Turmmanöver führt zu einem materiellen Gewinn.} Kxh6 {Schwarz schlägt den Turm zurück. Die weisse Dame bleibt aber aktiv und kann neue Ziele angreifen.}
+22. Qd7 {Die Dame greift gleichzeitig die Läufer auf b7 und e7 an: Eine Doppelattacke nach der Opferkombination.} Bf6 {Der Läufer e7 weicht aus und entzieht sich einem der beiden Angriffe.}
+23. Qxb7 {Die weisse Dame gewinnt den Läufer auf b7; der andere Läufer bleibt für Schwarz erhalten.} Kg7 {Der König geht nach g7 und versucht, der unmittelbaren Gefahrenzone zu entkommen.}
+24. Rf1 {Der verbliebene weisse Turm aktiviert sich auf der f-Linie.} Rab8 {Der Turm a8 greift die weisse Dame entlang der b-Linie an.}
+25. Qd7 {Die Dame weicht auf d7 aus und bleibt aktiv im gegnerischen Lager.} Rfd8 {Der andere schwarze Turm übernimmt die d-Linie und attackiert die Dame.}
+26. Qg4+ {Die Dame zieht mit Schach nach g4, statt sich passiv zurückzuziehen.} Kf8 {Der König weicht nach f8 aus und versucht, den Schachgeboten zu entkommen.}
+27. fxe5 {Der f-Bauer schlägt den schwarzen e5-Bauern. Weiss beseitigt einen zentralen Gegner und öffnet die f-Linie.} Bg7 {Der Läufer f6 geht nach g7 und blickt wieder entlang einer langen Diagonale.}
+28. e6 {Der weisse e-Bauer rückt auf die sechste Reihe vor und wird zu einem gefährlichen Freibauernkandidaten.} Rb7 {Schwarz aktiviert den Turm b8 auf der siebten Reihe, um seitlich zu verteidigen.}
+29. Qg6 {Die Dame dringt nach g6 vor und greift die schwarzen Königsfelder an.} f6 {Schwarz greift den weissen Bauern auf e5 und schliesst eine Linie vor dem König.}
+30. Rxf6+ {Der Turm schlägt den Bauern auf f6 mit Schach. Weiss nutzt den geöffneten Weg gegen den König.} Bxf6 {Der schwarze Läufer schlägt den Turm; Weiss hat nun die Dame als entscheidende Angriffsfigur.}
+31. Qxf6+ {Die Dame schlägt den Läufer f6 mit Schach und gewinnt eine wichtige schwarze Verteidigungsfigur.} Ke8 {Der König zieht nach e8; Schwarz muss weiterhin den Angriff überstehen.}
+32. Qh8+ {Die Dame gibt Schach auf der achten Reihe und hält den schwarzen König unter Druck.} Ke7 {Schwarz muss den König nach e7 führen, mitten in die gegnerischen Linien.}
+33. Qg7+ {Ein weiteres Damenschach zwingt den König, auf weitere Drohungen zu reagieren.} Kxe6 {Der König nimmt den Bauern auf e6 und beseitigt damit einen Vorposten.}
+34. Qxb7 {Weiss nimmt den Turm auf b7. Die vorherige Folge von Schachs hat eine konkrete materielle Beute ermöglicht.} Rd6 {Der verbliebene schwarze Turm wird aktiv und unterstützt den d-Bauern.}
+35. Qxa6 {Die Dame gewinnt den Bauern auf a6 und schwächt den schwarzen Damenflügel.} d4 {Schwarz schiebt den d-Bauern nach vorne und sucht Gegenspiel mit einem Freibauern.}
+36. exd4 {Weiss nimmt den d-Bauern und verhindert, dass Schwarz ihn weiter voranschieben kann.} cxd4 {Der c-Bauer schlägt zurück auf d4 und bildet einen neuen vorgeschobenen Bauern.}
+37. h4 {Weiss gewinnt Raum am Königsflügel und kann den eigenen Bauern als zusätzliche Ressource einsetzen.} d3 {Der schwarze Bauer erreicht die dritte Reihe und droht, weiter in Richtung Umwandlung vorzurücken.}
+38. Qxd3 {Die Dame nimmt den gefährlichen Freibauern auf d3. Ohne diesen Gegenspielhebel gibt Schwarz auf.}
+1-0
