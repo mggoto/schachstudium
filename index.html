@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f3ee"><title>Kidsgambit Lab – Partienbibliothek</title>
 <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-<link rel="stylesheet" href="assets/style.css?v=library-1">
+<link rel="stylesheet" href="assets/style.css?v=library-filter-1">
 <style>
 /* Kidsgambit-Farben direkt im HTML, damit eine alte CSS-Datei sie nicht verdeckt. */
 #board.realboard .square-55d63.white-1e1d7 { background: #F5F0E8 !important; }
@@ -15,7 +15,7 @@
 <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script defer src="assets/app.js?v=copy-pgn-1"></script><script defer src="assets/own.js?v=own-analysis-2"></script>
+<script defer src="assets/app.js?v=library-filter-1"></script><script defer src="assets/own.js?v=own-analysis-2"></script>
 </head>
 <body>
 <div class="shell">
@@ -23,7 +23,7 @@
 <main>
 <section id="home" class="home">
   <div class="intro"><div><div class="eyebrow">KIDSGAMBIT LAB · SCHACHBIBLIOTHEK</div><h1>Grosse Partien. Neue Erkenntnisse.</h1><p>Berühmte Partien verstehen, in deinem Tempo lernen und deinen Fortschritt festhalten.</p></div><div class="counter"><strong id="total">0</strong><span>kommentierte Partien</span></div></div>
-  <div class="library-progress cardpanel"><div class="progress-top"><strong>Dein Lernfortschritt</strong><span id="learnedCount">0 von 0 gelernt</span></div><div class="progress-track" role="progressbar" aria-label="Gelernte Partien" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div id="progressFill"></div></div></div><div class="library-tools"><label class="library-search-label" for="librarySearch">Partien durchsuchen<input id="librarySearch" type="search" placeholder="Spieler, Eröffnung oder Lernschwerpunkt"></label><label class="library-filter-label" for="libraryFilter">Lernstatus<select id="libraryFilter"><option value="all">Alle Partien</option><option value="new">Noch nicht gelernt</option><option value="working">In Bearbeitung</option><option value="learned">Gelernt</option></select></label></div><div id="weeks" class="library-grid"></div>
+  <div class="library-progress cardpanel"><div class="progress-top"><strong>Dein Lernfortschritt</strong><span id="learnedCount">0 von 0 gelernt</span></div><div class="progress-track" role="progressbar" aria-label="Gelernte Partien" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div id="progressFill"></div></div></div><div class="library-tools"><label class="library-search-label" for="librarySearch">Partien durchsuchen<input id="librarySearch" type="search" placeholder="Spieler, Eröffnung oder Lernschwerpunkt"></label><label class="library-filter-label" for="openingFilter">Eröffnung<select id="openingFilter"><option value="all">Alle Eröffnungen</option></select></label><label class="library-filter-label" for="topicFilter">Lernschwerpunkt<select id="topicFilter"><option value="all">Alle Lernschwerpunkte</option></select></label><label class="library-filter-label" for="libraryFilter">Lernstatus<select id="libraryFilter"><option value="all">Alle Partien</option><option value="new">Noch nicht gelernt</option><option value="working">In Bearbeitung</option><option value="learned">Gelernt</option></select></label></div><div id="weeks" class="library-grid"></div>
   <p class="legend"><span class="legend-dot"></span> Alle Partien sind sofort verfügbar. Dein Lernstatus wird auf diesem Gerät im Browser gespeichert. „~1200“ bezeichnet das Lernniveau.</p>
 </section>
 <section id="own" class="ownpage" hidden>
