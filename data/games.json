@@ -82,5 +82,33 @@
     "focus": "Damenopfer, Turmschwenk und Koordination der Angriffsfiguren",
     "context": "New York, 1857: Im ersten amerikanischen Schachkongress zeigt Morphy, wie er mit beiden Türmen und Läufern einen Königsangriff vorbereitet. Die Kombination 17...Dxf3 funktioniert wegen des anschliessenden Turmschwenks auf die offene g-Linie. Paulsen gibt nach 28...Le3 auf.",
     "pgn": "games/paulsen-morphy-1857.pgn"
+  },
+  {
+    "id": "rotlewi-rubinstein-1907",
+    "date": "2026-11-10",
+    "white": "Georg Rotlewi",
+    "black": "Akiba Rubinstein",
+    "year": 1907,
+    "result": "0-1",
+    "opening": "Abgelehntes Damengambit",
+    "eco": "D40",
+    "level": "1200",
+    "focus": "Figurenkoordination, Linienöffnung und Angriff trotz Damenverlust",
+    "context": "Rubinsteins berühmte Kombination zeigt, wie Türme und Läufer zusammen einen Angriff tragen. Achte ab 19...Lb6+ besonders darauf, welche Felder um den weissen König schwach werden und weshalb 22...Txc3 funktioniert.",
+    "pgn": "games/rotlewi-rubinstein-1907.pgn"
+  },
+  {
+    "id": "lasker-bauer-1889",
+    "date": "2026-11-11",
+    "white": "Emanuel Lasker",
+    "black": "Johann Bauer",
+    "year": 1889,
+    "result": "1-0",
+    "opening": "Bird-Eröffnung",
+    "eco": "A03",
+    "level": "1200",
+    "focus": "Doppelläuferopfer, Turmhebung und Angriff auf die Königsstellung",
+    "context": "Lasker opfert nacheinander beide Läufer, um den schwarzen König freizulegen. Der entscheidende Lernpunkt ist nicht das Opfer allein, sondern die vorbereitete Turmhebung über f3 nach h3.",
+    "pgn": "games/lasker-bauer-1889.pgn"
   }
 ]
