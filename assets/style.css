@@ -121,3 +121,11 @@
 .detailActions{display:flex;align-items:end;gap:12px;flex-wrap:wrap}
 .detail-status-label select{min-width:175px}
 @media(max-width:780px){.library-grid{grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:12px}.library-card{min-height:225px}.library-progress{padding:15px}.detailActions{width:100%}.detail-status-label{flex:1}.masthead{flex-wrap:wrap}.headright{width:100%;justify-content:flex-start}}
+
+/* Library: four combinable, compact study filters. */
+.library-tools{display:grid;grid-template-columns:minmax(220px,1.7fr) repeat(3,minmax(145px,1fr));gap:12px;align-items:end}
+.library-search-label{min-width:0}
+.library-filter-label{min-width:0}
+.library-filter-label select{width:100%;max-width:100%;text-overflow:ellipsis;cursor:pointer}
+@media(max-width:1050px){.library-tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.library-tools{grid-template-columns:1fr;gap:10px}}
