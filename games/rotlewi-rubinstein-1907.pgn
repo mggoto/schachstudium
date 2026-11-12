@@ -1,0 +1,36 @@
+[Event "Łódź"]
+[Site "Łódź"]
+[Date "1907.??.??"]
+[White "Georg Rotlewi"]
+[Black "Akiba Rubinstein"]
+[Result "0-1"]
+[ECO "D40"]
+[Annotator "Kidsgambit Lab – didaktische Kommentare"]
+[Source "https://chessmotion.com/explore/famous-chess-games/rotlewi-rubinstein-immortal"]
+
+1. d4 {Weiss besetzt das Zentrum und öffnet dem Damenläufer eine Diagonale.} d5 {Schwarz hält dem weissen Zentrumsbauern einen Bauern entgegen.}
+2. Nf3 {Der Springer entwickelt sich und kontrolliert die zentralen Felder e5 und d4.} e6 {Schwarz sichert d5 und öffnet dem Läufer f8 die Diagonale.}
+3. e3 {Weiss stabilisiert d4, verschliesst vorerst aber dem Läufer c1 die Diagonale.} c5 {Schwarz greift den Bauern d4 an und stellt das weisse Zentrum infrage.}
+4. c4 {Das Damengambit: Weiss setzt den Bauern d5 unter Druck.} Nc6 {Schwarz verstärkt die Kontrolle über d4 und entwickelt den Damenspringer.}
+5. Nc3 {Ein weiterer Springer kämpft um das Zentrum, besonders um d5 und e4.} Nf6 {Der Springer greift das Zentrum an und bereitet die Rochade vor.}
+6. dxc5 {Weiss löst die Spannung im Zentrum und nimmt den Bauern auf c5.} Bxc5 {Schwarz gewinnt den Bauern mit einem entwickelten Läufer zurück.}
+7. a3 {Weiss kontrolliert b4 und bereitet einen Raumgewinn am Damenflügel vor.} a6 {Schwarz verhindert, dass ein weisser Springer oder Läufer bequem nach b5 zieht.}
+8. b4 {Der Läufer c5 wird angegriffen; Weiss gewinnt Raum, lässt aber am Damenflügel Felder zurück.} Bd6 {Der Läufer weicht nach d6 aus und blickt in Richtung des weissen Königsflügels.}
+9. Bb2 {Der Läufer erhält die lange Diagonale b2–h8 und unterstützt zentrale Felder.} O-O {Schwarz rochiert: Der König ist sicherer, und der Turm f8 kann später mitspielen.}
+10. Qd2 {Die Dame verbindet die Türme perspektivisch und hält verschiedene Aufbaupläne offen.} Qe7 {Schwarz unterstützt den Läufer d6 und hält die Verbindung der Schwerfiguren.}
+11. Bd3 {Weiss entwickelt seinen Königsflügelläufer; er blickt auf die gegnerische Königsseite.} dxc4 {Schwarz entscheidet sich für den Abtausch im Zentrum und greift den Läuferweg an.}
+12. Bxc4 {Der Läufer nimmt den Bauern zurück und steht aktiv auf der Diagonale c4–f7.} b5 {Schwarz gewinnt Raum am Damenflügel und vertreibt den weissen Läufer.}
+13. Bd3 {Weiss hält den Läufer auf einer aktiven Diagonale in Richtung h7.} Rd8 {Der Turm besetzt die d-Linie und richtet sich gegen die weisse Dame auf d2.}
+14. Qe2 {Die Dame verlässt die Turmlinie d8–d2 und unterstützt den zentralen Aufbau.} Bb7 {Der Läufer c8 wird auf der langen Diagonale b7–h1 aktiv.}
+15. O-O {Weiss bringt seinen König in Sicherheit. Die nächsten Züge entscheiden, ob der Angriff abgewehrt werden kann.} Ne5 {Der Springer stellt sich ins Zentrum, greift den Läufer d3 an und erhöht den Druck.}
+16. Nxe5 {Weiss tauscht den zentralisierten schwarzen Springer ab.} Bxe5 {Der Läufer übernimmt den Platz auf e5 und richtet sich nun auf den Königsflügel.}
+17. f4 {Weiss greift den Läufer auf e5 an, schwächt aber gleichzeitig die Diagonalen um den eigenen König.} Bc7 {Der Läufer bleibt erhalten und kann über die Diagonale b8–h2 auf den König zielen.}
+18. e4 {Weiss baut ein breites Bauernzentrum auf, öffnet aber Felder für schwarze Gegenspielideen.} Rac8 {Der Turm a8 zieht auf die offene c-Linie; Rubinstein führt weitere Kräfte heran.}
+19. e5 {Der weisse Bauer gewinnt Raum und verdrängt den Springer f6 aus seiner bisherigen Wirkung.} Bb6+ {Der Läufer gibt Schach über die Diagonale b6–g1. Schwarz gewinnt einen wichtigen Tempozug.}
+20. Kh1 {Der König weicht in die Ecke aus; die lange Diagonale zum König bleibt nun taktisch empfindlich.} Ng4 {Der Springer springt aggressiv vor. Gemeinsam mit Läufern und Dame wächst der Druck auf den König.}
+21. Be4 {Weiss zentralisiert den Läufer und stellt ihn auf eine Diagonale, die auch schwarze Angriffsfiguren berührt.} Qh4 {Die Dame nähert sich dem König h1. Schwarz droht nun konkrete Mattmotive auf der dunklen Feldergruppe an.}
+22. g3 {Weiss greift die Dame h4 mit einem Bauern an. Der Zug schwächt aber die dunklen Felder um den König.} Rxc3 {Rubinstein opfert den Turm auf c3 und entfernt den Springer: Der schwarze Angriff beruht auf berechneten Folgezügen.}
+23. gxh4 {Der Bauer g3 nimmt die schwarze Dame auf h4. Weiss gewinnt die Dame, doch die Königslinien sind offen.} Rd2 {Der zweite schwarze Turm dringt in die zweite Reihe ein und greift die weisse Dame d2 an.}
+24. Qxd2 {Die Dame muss den eingedrungenen Turm nehmen; danach bleibt die weisse Königsstellung ungeschützt.} Bxe4+ {Der Läufer schlägt den Läufer auf e4 mit Schach. Schwarz aktiviert die Läufer mit Tempo.}
+25. Qg2 {Die weisse Dame deckt den König und bleibt zur Verteidigung in der Nähe.} Rh3 {Der Turm rückt nach h3 vor. Trotz des abgegebenen Damenmaterials droht Schwarz mit Läufern und Turm Matt.}
+0-1
