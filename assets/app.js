@@ -88,7 +88,14 @@ function drawArchive(){
  $id('progressTrack').setAttribute('aria-valuenow',String(pct));
  const query=$id('librarySearch').value.trim().toLocaleLowerCase('de-CH');
  const filter=$id('libraryFilter').value;
- const filtered=games.filter(g=>(filter==='all'||studyStatus(g.id)===filter)&&[g.white,g.black,g.opening,g.focus,g.year,g.context].join(' ').toLocaleLowerCase('de-CH').includes(query));
+ const opening=$id('openingFilter').value;
+ const topic=$id('topicFilter').value;
+ const filtered=games.filter(g=>
+   (filter==='all'||studyStatus(g.id)===filter)&&
+   (opening==='all'||g.opening===opening)&&
+   (topic==='all'||(g.topics||[]).includes(topic))&&
+   [g.white,g.black,g.opening,g.focus,g.year,g.context,...(g.topics||[])].join(' ').toLocaleLowerCase('de-CH').includes(query)
+ );
  const statusText={new:'Noch nicht gelernt',working:'In Bearbeitung',learned:'Gelernt ✓'};
  $id('weeks').innerHTML=filtered.map(g=>{
   const status=studyStatus(g.id);
@@ -102,6 +109,14 @@ function drawArchive(){
  }).join('')||'<p class="library-empty">Keine passenden Partien gefunden. Ändere den Suchbegriff oder den Filter.</p>';
  document.querySelectorAll('[data-game]').forEach(el=>el.addEventListener('click',()=>openGame(el.dataset.game)));
 }
+function buildLibraryFilters(){
+ const openings=[...new Set(state.games.map(g=>g.opening))].sort((a,b)=>a.localeCompare(b,'de-CH'));
+ const topics=[...new Set(state.games.flatMap(g=>g.topics||[]))].sort((a,b)=>a.localeCompare(b,'de-CH'));
+ $id('openingFilter').innerHTML='<option value="all">Alle Eröffnungen</option>'+openings.map(value=>'<option value="'+esc(value)+'">'+esc(value)+'</option>').join('');
+ $id('topicFilter').innerHTML='<option value="all">Alle Lernschwerpunkte</option>'+topics.map(value=>'<option value="'+esc(value)+'">'+esc(value)+'</option>').join('');
+}
+$id('openingFilter').addEventListener('change',drawArchive);
+$id('topicFilter').addEventListener('change',drawArchive);
 $id('librarySearch').addEventListener('input',drawArchive);
 $id('libraryFilter').addEventListener('change',drawArchive);
 $id('detailLearnStatus').addEventListener('change',e=>{if(state.selected)saveStudyStatus(state.selected.id,e.target.value);});
@@ -234,4 +249,4 @@ $id('first').onclick=()=>jump(0);$id('prev').onclick=()=>jump(state.index-1);$id
 $id('flip').onclick=()=>state.board?.flip();
 document.addEventListener('keydown',e=>{if($id('detail').hidden||e.target.closest('input,textarea,button'))return;if(e.key==='ArrowLeft'){e.preventDefault();jump(state.index-1);}if(e.key==='ArrowRight'){e.preventDefault();jump(state.index+1);}});
 window.addEventListener('resize',()=>{if(boardWidthPreference!==null)setBoardWidth(boardWidthPreference);else state.board?.resize();});
-(async()=>{try{const r=await fetch('data/games.json',{cache:'no-store'});if(!r.ok)throw Error('Katalog nicht verfügbar');state.games=await r.json();drawArchive();}catch(err){$id('weeks').textContent='Partiensammlung konnte nicht geladen werden. Bitte die Seite über einen Webserver öffnen (nicht als lokale file://-Datei). '+err.message;}})();
+(async()=>{try{const r=await fetch('data/games.json',{cache:'no-store'});if(!r.ok)throw Error('Katalog nicht verfügbar');state.games=await r.json();buildLibraryFilters();drawArchive();}catch(err){$id('weeks').textContent='Partiensammlung konnte nicht geladen werden. Bitte die Seite über einen Webserver öffnen (nicht als lokale file://-Datei). '+err.message;}})();
